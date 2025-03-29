@@ -15,3 +15,5 @@ venue_details = [
         "max_people": 100,
     },
 ]
+
+faq = [{"question": "What is wedding insurance", "answer": "wedding insurance"}]

@@ -4,61 +4,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
       .faq {
-        display: flex;
-        gap: 24px;
-      }
-      #more {
-        display: none;
-      }
-      button{
-        margin-top: 25px;
-        height: 20px
+        display: grid;
       }
     </style>
   </head>
   <body>
     <div class="faq">
-    <h2>What is wedding insurance?</h2>
-      <button onclick="myFunction()" id="myBtn">+</button>
-      </div>
-      <p>
-        <span id="dots"> </span
-        ><span id="more"
-          >Wedding insurance is cover that protects a couple’s investment from
+      <h2>
+        What is wedding insurance?
+        <button class="button" onclick="toggleDescription(this)">+</button>
+      </h2>
+      <div class="content" style="display: none">
+        <p>
+          Wedding insurance is cover that protects a couple’s investment from
           circumstances beyond their control and reimburses unrecoverable
-          expenses incurred.</span
-        >
-      </p>
+          expenses incurred.
+        </p>
+      </div>
     </div>
 
-     <div class="faq">
-    <h2>What is wedding insurance?</h2>
-      <button onclick="myFunction()" id="myBtn">+</button>
-      </div>
-      <p>
-        <span id="dots"> </span
-        ><span id="more"
-          >Wedding insurance is cover that protects a couple’s investment from
+    <div class="faq">
+      <h2>
+        What is wedding insurance?
+        <button class="button" onclick="toggleDescription(this)">+</button>
+      </h2>
+      <div class="content" style="display: none">
+        <p>
+          Wedding insurance is cover that protects a couple’s investment from
           circumstances beyond their control and reimburses unrecoverable
-          expenses incurred.</span
-        >
-      </p>
+          expenses incurred.
+        </p>
+      </div>
     </div>
 
     <script>
-      function myFunction() {
-        var dots = document.getElementById("dots");
-        var moreText = document.getElementById("more");
-        var btnText = document.getElementById("myBtn");
-
-        if (dots.style.display === "none") {
-          dots.style.display = "inline";
-          btnText.innerHTML = "+";
-          moreText.style.display = "none";
+      function toggleDescription(button) {
+        const content = button.parentElement.nextElementSibling;
+        if (content.style.display == "none") {
+          content.style.display = "block";
+          button.textContent = "-";
         } else {
-          dots.style.display = "none";
-          btnText.innerHTML = "-";
-          moreText.style.display = "inline";
+          content.style.display = "none";
+          button.textContent = "+";
         }
       }
     </script>
