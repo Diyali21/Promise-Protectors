@@ -11,14 +11,18 @@
       crossorigin="anonymous"
     />
     <style>
-      h3 {
-        width: 600px;
+      .h3-about {
+        width: 500px;
+        margin-left: 85px;
+        font-size: 25px;
       }
-      .about-card {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 400px;
-        margin-bottom: 200px;
+      .h3-story {
+        margin-bottom: 30px;
+        margin-left: 790px;
+        width: 500px;
+      }
+      h3 {
+        line-height: 1.25;
       }
       body {
         margin: 0;
@@ -30,45 +34,72 @@
         height: 350px;
         width: 350px;
       }
-      h1 {
-        margin-bottom: 50px;
+      .h1-about {
+        margin-bottom: 30px;
+        margin-top: 80px;
+        margin-left: 85px;
+      }
+      .h1-story {
+        margin-bottom: 30px;
+        margin-top: 80px;
+        margin-right: 30px;
+        text-align: end;
+      }
+      .about {
+        background-image: url("https://www.akentishceremony.com/assets/Uploads/how-to-find-wedding-rings__FocusFillWzc4NSw0MDAsInkiLDYxXQ.jpg");
+        height: 500px;
+        width: 1500px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: luminosity;
+        border-top-right-radius: 80px;
+        border-bottom-left-radius: 80px;
+        margin-bottom: 500px;
+      }
+      .story {
+        background-image: URL("https://www.flowers-wallpapers.com/backgrounds/flowers-roses-pink-boarding-colourfull.jpg");
+        height: 500px;
+        width: 1315px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: luminosity;
+        border-top-left-radius: 80px;
+        border-bottom-right-radius: 80px;
+      }
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 200px;
+        margin-top: 500px;
       }
     </style>
   </head>
   <body>
-    <div class="about-card">
-      <div>
-        <h1>Our Story</h1>
-        <h3>
+    <div class="container">
+      <div class="story">
+        <h1 class="h1-about">Our Story</h1>
+        <h3 class="h3-about">
           In 2025, Anita Chivizhe and Diyali Devraj, friends, partnered up to
           secure couple’s “Happily Ever Afters” on their wedding day. Having
           witnessed many challenging moments on couples’ wedding days, Diyali
           and Anita co-founded “Promise Protectors”
         </h3>
       </div>
-      <div>
-        <img
-          src="https://i.pinimg.com/originals/2e/e3/e6/2ee3e6df94e4f7cb3e719c440a122fbe.jpg"
-          alt=""
-        />
-      </div>
-    </div>
-    <div class="about-card">
-      <div>
-        <h1>About Promise Protectors</h1>
-        <h3>
+      <div class="about">
+        <h1 class="h1-story">About Promise Protectors</h1>
+        <h3 class="h3-story">
           Our mission, to safeguard the joy and dreams of every couple on their
           special day. We understand that weddings are not just events; they are
           cherished moments filled with love, hope, and commitment. Our
           dedicated team is committed to providing tailor-made cover specific to
           your wedding dream.
         </h3>
-      </div>
-      <div>
-        <img
-          src="https://img.freepik.com/premium-vector/elegant-wedding-couple_951778-10312.jpg"
-          alt=""
-        />
       </div>
     </div>
     <script
