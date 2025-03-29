@@ -13,41 +13,51 @@
     />
 
     <style>
-      body {
-        font-family: Roboto, sans-serif;
-      }
-
       .nav-link-container {
         display: flex;
         list-style: none;
-        gap: 24px;
+        justify-content: center;
+        gap: 100px;
         padding: 0px;
+        margin-top: 20px;
       }
 
       .nav-link-container a {
         text-decoration: none;
+        color: #cfac6b;
+        font-size: 30px;
       }
-
-      .nav-link-container a:hover {
-        color: skyblue;
+      .spacing-words {
+        margin-top: 75px;
+      }
+      img {
+        height: 200px;
+        border-radius: 50px;
+      }
+      a:hover {
+        color: black;
+      }
+      a:active {
+        background-color: peachpuff;
       }
     </style>
-
-    {% block head_content %} {% endblock %}
   </head>
   <body>
     <header>
       <nav>
         <ul class="nav-link-container">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/profile">Profile</a></li>
-          <li><a href="/movie-list">Movies</a></li>
+          <li>
+            <img src="/PROMISE PROTECTORS_20250325_191749_0000.png" alt="" />
+          </li>
+          <li class="spacing-words"><a href="/"> ✨ Home</a></li>
+          <li class="spacing-words"><a href="/about">✨ About</a></li>
+
+          <li class="spacing-words"><a href="/faq">✨ FAQ</a></li>
+          <li class="spacing-words"><a href="/blog">✨ Blog</a></li>
+          <li class="spacing-words"><a href="/contact-us">✨ Contact Us</a></li>
         </ul>
       </nav>
     </header>
-
-    {% block content %} {% endblock %}
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
