@@ -11,51 +11,20 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-
-    <style>
-      body {
-        background: linear-gradient(
-          to top,
-          #e18aaa,
-          #e4a0b7,
-          #ecbdc4,
-          #efcfd4,
-          #f5dce0
-        );
-      }
-      .nav-link-container {
-        display: flex;
-        list-style: none;
-        justify-content: center;
-        gap: 100px;
-        padding: 0px;
-      }
-
-      .nav-link-container a {
-        text-decoration: none;
-        color: #cfac6b;
-        font-size: 30px;
-      }
-      .spacing-words {
-        margin-top: 75px;
-      }
-      .img-logo {
-        height: 200px;
-        border-radius: 50px;
-      }
-      a:hover {
-        color: black;
-      }
-      a:active {
-        background-color: peachpuff;
-      }
-    </style>
+    <link rel="stylesheet" href="/static/css/base.css" />
     {% block head_content %} {% endblock %}
   </head>
   <body>
     <header>
       <nav>
         <ul class="nav-link-container">
+          <li>
+            <img
+              class="img-logo"
+              src="/static/PROMISE PROTECTORS_20250325_191749_0000.png"
+              alt=""
+            />
+          </li>
           <li class="spacing-words"><a href="/"> ✨ Home</a></li>
           <li class="spacing-words"><a href="/dashboard"> ✨ Dashboard</a></li>
           <li class="spacing-words"><a href="/about">✨ About</a></li>

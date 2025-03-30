@@ -18,7 +18,7 @@ body {
   display: grid;
   place-content: center;
 }
-img {
+.img-about {
   height: 350px;
   width: 350px;
 }
@@ -64,5 +64,5 @@ img {
   flex-wrap: wrap;
   flex-direction: row;
   gap: 200px;
-  margin-top: 100px;
+  margin-top: 50px;
 }
