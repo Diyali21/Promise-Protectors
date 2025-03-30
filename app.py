@@ -26,3 +26,33 @@ venue_details = [
 ]
 
 faq = [{"question": "What is wedding insurance", "answer": "wedding insurance"}]
+
+
+from flask import Flask, render_template
+
+from routes.about_bp import about_bp
+from routes.contact_us_bp import contact_us_bp
+from routes.dashboard_bp import dashboard_bp
+from routes.faq_bp import faq_bp
+from routes.main_bp import main_bp
+from routes.venue_details_bp import venue_details_bp
+
+
+def create_app():
+    app = Flask(__name__)
+
+    # Flask - Blueprints
+    app.register_blueprint(main_bp)
+    app.register_blueprint(venue_details_bp, url_prefix="/venue-details")
+    app.register_blueprint(faq_bp, url_prefix="/faq")
+    app.register_blueprint(about_bp, url_prefix="/about")
+    app.register_blueprint(contact_us_bp, url_prefix="/contact-us")
+    app.register_blueprint(dashboard_bp, url_prefix="/dashboard")
+    return app
+
+
+if __name__ == "__main__":
+    app = create_app()
+    app.run(debug=True)
+
+# Ctrl + ~ -> Open and close terminal
