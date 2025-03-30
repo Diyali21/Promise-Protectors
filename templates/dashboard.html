@@ -25,15 +25,58 @@
         border-radius: 50%;
         object-fit: cover;
       }
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+        margin-top: 50px;
+      }
+      .packages-card {
+        display: grid;
+        background-color: antiquewhite;
+        padding: 50px;
+      }
+      .profile {
+        padding-top: 50px;
+        display: grid;
+        place-content: center;
+      }
+      h3 {
+        display: grid;
+        text-align: center;
+      }
+      .past {
+        margin-top: 100px;
+      }
     </style>
   </head>
   <body>
-    <h2>Hello, Lana 😊</h2>
-    <img
-      class="profile-pic"
-      src="https://th.bing.com/th/id/R.53e303f38941ba3734efe5c4e813cdda?rik=qHJqF9JNEeqs5g&riu=http%3a%2f%2fimages6.fanpop.com%2fimage%2fphotos%2f39700000%2fJasmine-disney-princess-39762164-600-600.jpg&ehk=OBf4LGWB%2bYfu2GJz6NCuPbgbsbwQAWaK7wTnwRINqaY%3d&risl=&pid=ImgRaw&r=0"
-      alt=""
-    />
+    <h3>Wedding Day Countdown: 5 days to go! 🎉</h3>
+    <div class="profile">
+      <h2>Hello, Lana 😊</h2>
+      <img
+        class="profile-pic"
+        src="https://th.bing.com/th/id/OIP.xTWS6yh3vv764AW3dsSvPwAAAA?rs=1&pid=ImgDetMain
+"
+        alt=""
+      />
+    </div>
+    <h3 class="past">Current Package</h3>
+    <div class="packages-card">
+      <h3>Package 1</h3>
+    </div>
+    <h3 class="past">Past Packages</h3>
+    <div class="container">
+      <div class="packages-card">
+        <h3>Package 1</h3>
+      </div>
+      <div class="packages-card">
+        <h3>Package 2</h3>
+      </div>
+      <div class="packages-card">
+        <h3>Package 3</h3>
+      </div>
+    </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
