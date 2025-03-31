@@ -14,7 +14,8 @@ body {
 .card:hover {
   transform: scale(1.15);
   border-style: 20px solid;
-  border-color: plum;
+  border-color: black;
+  cursor: pointer;
 }
 h2,
 h3 {
@@ -28,5 +29,6 @@ h3 {
 }
 .card {
   width: 50rem;
-  margin-top: 50px;
+  margin-top: 75px;
+  background-color: blanchedalmond;
 }
