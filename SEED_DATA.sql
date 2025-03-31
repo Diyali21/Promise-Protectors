@@ -1,0 +1,23 @@
+CREATE TABLE venue(
+venue_id INTEGER PRIMARY KEY,
+name NVARCHAR(50) NOT NULL,
+description NVARCHAR(500) NOT NULL,
+max_guests INTEGER NOT NULL,
+venue_image NVARCHAR(255) NOT NULL);
+
+
+CREATE TABLE users(
+username VARCHAR(25) PRIMARY KEY,
+fullName VARCHAR(50) NOT NULL,
+email VARCHAR(50) NOT NULL,
+contact_no VARCHAR(15) NOT NULL,
+password VARCHAR(100) NOT NULL);
+
+CREATE TABLE wedding_(
+wed_id INTEGER PRIMARY KEY,
+no_guests INTEGER NOT NULL,
+wed_date DATE NOT NULL,
+venue_name VARCHAR(50),
+username VARCHAR(25) FOREIGN KEY REFERENCES users(username),
+package_id INTEGER FOREIGN KEY REFERENCES package(package_id)
+);

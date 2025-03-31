@@ -1,8 +1,8 @@
 body {
-  margin-top: 0;
-  min-height: 100vh;
   display: grid;
   place-content: center;
+  min-height: 100vh;
+  margin: 0px;
 }
 .profile-pic {
   margin-top: 50px;
@@ -19,10 +19,9 @@ body {
   gap: 50px;
   margin-top: 50px;
 }
-.packages-card {
-  display: grid;
-  background-color: antiquewhite;
-  padding: 50px;
+.package-cards {
+  display: flex;
+  flex-wrap: wrap;
 }
 .profile {
   padding-top: 50px;
@@ -33,9 +32,7 @@ h3 {
   display: grid;
   text-align: center;
 }
-.past {
-  margin-top: 100px;
-}
+
 .content {
   margin-top: 50px;
   margin-bottom: 50px;
