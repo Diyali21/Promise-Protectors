@@ -4,7 +4,6 @@ body {
   min-height: 100vh;
   display: grid;
   place-content: center;
-  background-color: #f6f0ea;
 }
 .venues {
   margin-top: 100px;
