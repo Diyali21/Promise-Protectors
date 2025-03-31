@@ -3,7 +3,6 @@ body {
   min-height: 100vh;
   display: grid;
   place-content: center;
-  background-color: #f6f0ea;
 }
 .profile-pic {
   margin-top: 50px;

@@ -8,6 +8,4 @@ contact_us_bp = Blueprint("contact_us_bp", __name__)
 
 @contact_us_bp.get("/")
 def contact_us_bp_page():
-    return render_template(
-        "contact-us.html",
-    )
+    return render_template("contact-us.html", active_page="contact-us")

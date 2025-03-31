@@ -1,12 +1,4 @@
 body {
-  background: linear-gradient(
-    to top,
-    #e18aaa,
-    #e4a0b7,
-    #ecbdc4,
-    #efcfd4,
-    #f5dce0
-  );
 }
 .nav-link-container {
   display: flex;
@@ -29,9 +21,10 @@ body {
   height: 200px;
   border-radius: 50px;
 }
+
 a:hover {
   color: black;
 }
-a:active {
+nav ul li a.active {
   background-color: peachpuff;
 }

@@ -8,6 +8,4 @@ about_bp = Blueprint("about_bp", __name__)
 
 @about_bp.get("/")
 def about_bp_page():
-    return render_template(
-        "about.html",
-    )
+    return render_template("about.html", active_page="about")

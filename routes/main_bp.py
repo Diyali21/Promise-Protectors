@@ -9,4 +9,4 @@ main_bp = Blueprint("main_bp", __name__)
 #  API / Endpoint
 @main_bp.get("/")
 def hello_world():
-    return render_template("home.html")
+    return render_template("home.html", active_page="home")
