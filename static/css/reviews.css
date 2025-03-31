@@ -5,7 +5,9 @@ body {
   margin: 0;
 }
 h1 {
+  margin-top: 80px;
   padding-bottom: 5px;
+  font-size: 50px;
 }
 .card-body {
   background-color: rgb(239, 207, 212, 0.5);
@@ -23,8 +25,13 @@ h1 {
   padding-left: 300px;
 }
 h5 {
-  font-size: 15px;
+  font-size: 25px;
 }
 .card-text {
-  font-size: 13px;
+  font-size: 18px;
+}
+
+.second-line {
+  font-size: 25px;
+  padding-bottom: 30px;
 }
