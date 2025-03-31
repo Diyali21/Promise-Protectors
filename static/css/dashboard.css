@@ -15,14 +15,18 @@ body {
 .container {
   display: grid;
   justify-content: center;
+  min-height: 100vh;
   gap: 20px;
   margin-top: 20px;
 }
 .package-cards {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 200px;
+  place-content: center;
+  margin-top: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  gap: 10px;
+  background-color: antiquewhite;
 }
 .profile {
   padding-top: 50px;
