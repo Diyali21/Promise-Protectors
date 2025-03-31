@@ -6,7 +6,6 @@ HTTP_NOT_FOUND = 404
 reviews_bp = Blueprint("reviews_bp", __name__)
 
 
-#  API / Endpoint
 @reviews_bp.get("/")
-def hello_world():
-    return render_template("reviews_bp")
+def reviews_bp_page():
+    return render_template("reviews.html", active_page="reviews")

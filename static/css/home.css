@@ -11,9 +11,9 @@ body {
   max-width: 50px;
   transition: 4s all;
 }
-.card-img-top:hover {
+.card:hover {
   transform: scale(1.15);
-  border-style: solid;
+  border-style: 20px solid;
   border-color: plum;
 }
 h2,

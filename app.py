@@ -1,9 +1,10 @@
 venue_details = [
     {
+        "venue_id": 1,
         "venue_name": "A secret garden, hidden just for you",
         "venue_description": "Imagine a place, where time stands still, and all that exists is the beauty of nature and the love you share. In this picturesque garden venue, the beauty of nature sets the stage for a romantic and unforgettable wedding celebration. Spend your special day surrounded by the sights, sounds, and scents of nature, your love will flourish, and your hearts will forever be entwined.",
         "max_people": 200,
-        "image": "https://forbetterforworse.co.uk/wp-content/uploads/2013/07/Manor-by-the-lake-italian-pavilion-ceremony-.jpg",
+        "image_link": "https://forbetterforworse.co.uk/wp-content/uploads/2013/07/Manor-by-the-lake-italian-pavilion-ceremony-.jpg",
     },
     {
         "venue_name": "",
@@ -35,6 +36,7 @@ from routes.contact_us_bp import contact_us_bp
 from routes.dashboard_bp import dashboard_bp
 from routes.faq_bp import faq_bp
 from routes.main_bp import main_bp
+from routes.reviews_bp import reviews_bp
 from routes.venue_details_bp import venue_details_bp
 
 
@@ -48,6 +50,7 @@ def create_app():
     app.register_blueprint(about_bp, url_prefix="/about")
     app.register_blueprint(contact_us_bp, url_prefix="/contact-us")
     app.register_blueprint(dashboard_bp, url_prefix="/dashboard")
+    app.register_blueprint(reviews_bp, url_prefix="/reviews")
     return app
 
 
