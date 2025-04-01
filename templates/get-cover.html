@@ -6,7 +6,10 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8">
-          <div class="form-container">
+          <form
+          acion="{{url_for('get_cover_bp.create_cover')}}"
+          method="POST"
+          class="form-container">
             <div class="header">
               <h1><i class="fas fa-heart"></i> Get Covered</h1>
               <p>
@@ -15,12 +18,12 @@
             </div>
             <form>
               <div class="mb-4">
-                <label for="fullName" class="form-label">Full Name</label>
+                <label for="name" class="form-label">Full Name</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="fullName"
-                  name="fullName"
+                  id="name"
+                  name="name"
                   required
                   placeholder="Enter your full name"
                 />
@@ -48,36 +51,39 @@
                 />
               </div>
               <div class="mb-4">
-                <label for="weddingDate" class="form-label">Wedding Date</label>
+                <label for="wed_date" class="form-label">Wedding Date</label>
                 <input
                   type="date"
                   class="form-control"
-                  id="weddingDate"
-                  name="weddingDate"
+                  id="wed_date"
+                  name="wed_date"
                   required
                 />
               </div>
               <div class="mb-4">
                 <label for="venue" class="form-label">Select Venue</label>
-                <select class="form-select" id="venue" name="venue" required>
-                  <option value="" selected disabled>Choose a venue...</option>
-                  {% for info in venue %}
-                  <option value={{info.name}} data-capacity= {{info.max_guests}}>
-                    {{info.name}} (Max: {{info.max_guests}} guests)
+                <select class="form-select" id="venue_name" name="venue_name" required>
+                  <option value="garden" data-capacity="150">
+                    Garden Terrace (Max: 150 guests)
                   </option>
-                  {% endfor %}
+                  <option value="ballroom" data-capacity="250">
+                    Grand Ballroom (Max: 250 guests)
+                  </option>
+                  <option value="beachfront" data-capacity="100">
+                    Beachfront (Max: 100 guests)
+                  </option>
                 </select>
                 <div class="form-text text-muted"></div>
               </div>
               <div class="mb-4">
-                <label for="guestCount" class="form-label"
+                <label for="no_guests" class="form-label"
                   >Number of Guests</label
                 >
                 <input
                   type="number"
                   class="form-control"
-                  id="guestCount"
-                  name="guestCount"
+                  id="no_guests"
+                  name="no_guests"
                   min="1"
                   max="250"
                   required
@@ -182,7 +188,7 @@
                 Thank you for choosing our services for your special day!
               </p>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>

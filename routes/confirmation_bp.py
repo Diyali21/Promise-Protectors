@@ -8,5 +8,5 @@ confirmation_bp = Blueprint("confirmation_bp", __name__)
 
 #  API / Endpoint
 @confirmation_bp.get("/")
-def hello_world():
+def confirmation_page():
     return render_template("confirmation.html")
