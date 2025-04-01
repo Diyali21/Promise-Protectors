@@ -13,7 +13,7 @@ email VARCHAR(50) NOT NULL,
 contact_no VARCHAR(15) NOT NULL,
 password VARCHAR(100) NOT NULL);
 
-CREATE TABLE wedding_(
+CREATE TABLE wedding(
 wed_id INTEGER PRIMARY KEY,
 no_guests INTEGER NOT NULL,
 wed_date DATE NOT NULL,
