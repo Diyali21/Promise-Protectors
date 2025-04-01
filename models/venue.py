@@ -12,6 +12,7 @@ class Venue(db.Model):
     description = db.Column(db.String(500), nullable=False)
     max_guests = db.Column(db.Integer, nullable=False)
     venue_image = db.Column(db.String(255), nullable=False)
+    venue_price = db.Column(db.Float, nullable=False)
 
     def to_dict(self):
         return {
@@ -20,4 +21,5 @@ class Venue(db.Model):
             "description": self.description,
             "max_guests": self.max_guests,
             "venue_image": self.venue_image,
+            "venue_price": self.venue_price,
         }

@@ -1,0 +1,22 @@
+body {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  margin: 0px;
+}
+.container {
+  padding: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: center;
+  gap: 24px;
+  margin-bottom: 500px;
+  background-color: rgb(239, 207, 212, 0.5);
+  margin-top: 20px;
+  padding-right: 50px;
+  width: 400px;
+}
+
+.words {
+  margin-top: 10px;
+}
