@@ -61,15 +61,11 @@
                 <label for="venue" class="form-label">Select Venue</label>
                 <select class="form-select" id="venue" name="venue" required>
                   <option value="" selected disabled>Choose a venue...</option>
-                  <option value="garden" data-capacity="150">
-                    Garden Terrace (Max: 150 guests)
+                  {% for info in venue %}
+                  <option value={{info.name}} data-capacity= {{info.max_guests}}>
+                    {{info.name}} (Max: {{info.max_guests}} guests)
                   </option>
-                  <option value="ballroom" data-capacity="250">
-                    Grand Ballroom (Max: 250 guests)
-                  </option>
-                  <option value="beachfront" data-capacity="100">
-                    Beachfront (Max: 100 guests)
-                  </option>
+                  {% endfor %}
                 </select>
                 <div class="form-text text-muted"></div>
               </div>
