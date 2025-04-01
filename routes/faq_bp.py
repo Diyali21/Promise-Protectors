@@ -8,4 +8,4 @@ faq_bp = Blueprint("faq_bp", __name__)
 
 @faq_bp.get("/")
 def faq_bp_page():
-    return render_template("faq.html", active_page="faq")
+    return render_template("faq.html")

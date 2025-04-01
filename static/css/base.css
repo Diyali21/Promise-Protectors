@@ -23,6 +23,7 @@
 a:hover {
   color: black;
 }
-nav ul li a.active {
-  background-color: rgb(239, 207, 212, 0.5);
+
+.nav-link.active {
+  color: black;
 }
