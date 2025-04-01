@@ -7,5 +7,5 @@ faq_bp = Blueprint("faq_bp", __name__)
 
 
 @faq_bp.get("/")
-def sample_bp_page():
+def faq_bp_page():
     return render_template("faq.html", active_page="faq")

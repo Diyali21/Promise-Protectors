@@ -30,3 +30,10 @@ button {
   display: grid;
   justify-content: center;
 }
+
+.button-style {
+  font-size: 20px;
+  background-color: #c71585;
+  color: white;
+  height: 75px;
+}
