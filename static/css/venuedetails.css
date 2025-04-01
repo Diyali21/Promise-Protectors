@@ -33,7 +33,8 @@ button {
 
 .button-style {
   font-size: 20px;
-  background-color: #c71585;
+  background-color: #ff69b4;
   color: white;
   height: 75px;
+  padding-top: 20px;
 }

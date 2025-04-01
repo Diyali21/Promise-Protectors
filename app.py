@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 
 from routes.about_bp import about_bp
+from routes.confirmation_bp import confirmation_bp
 from routes.contact_us_bp import contact_us_bp
 from routes.dashboard_bp import dashboard_bp
 from routes.faq_bp import faq_bp
@@ -24,6 +25,7 @@ def create_app():
     app.register_blueprint(reviews_bp, url_prefix="/reviews")
     app.register_blueprint(get_cover_bp, url_prefix="/get-cover")
     app.register_blueprint(history_bp, url_prefix="/history")
+    app.register_blueprint(confirmation_bp, url_prefix="/confirmation")
     return app
 
 
