@@ -1,6 +1,6 @@
 from pprint import pprint
 
-from flask import Blueprint, redirect, render_template, request, url_for
+from flask import Blueprint, flash, redirect, render_template, request, url_for
 
 from extensions import db
 from models.wedding import Wedding
@@ -24,9 +24,11 @@ def create_cover():
 
     new_cover = Wedding(**data)
     try:
+        print(new_cover, new_cover.to_dict())
         db.session.add(new_cover)
         db.session.commit()
+        flash("Success")
         return redirect(url_for("confirmation_bp.confirmation_page"))
     except Exception as e:
         db.session.rollback()  # Undo: Restore the data | After commit cannot undo
-        return redirect(url_for("get_cover_bp.get_cover_bp_page"))
+        return redirect(url_for("get_cover_bp.create_cover"))

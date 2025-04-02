@@ -6,16 +6,15 @@ max_guests INTEGER NOT NULL,
 venue_image NVARCHAR(255) NOT NULL,
 venue_price FLOAT NOT NULL);
 
-
 CREATE TABLE users(
 username VARCHAR(25) PRIMARY KEY,
-fullName VARCHAR(50) NOT NULL,
-email VARCHAR(50) NOT NULL,
-contact_no VARCHAR(15) NOT NULL,
-password VARCHAR(100) NOT NULL);
+fullName VARCHAR(50),
+email VARCHAR(50),
+contact_no VARCHAR(15),
+password VARCHAR(200));
 
 CREATE TABLE wedding(
-wed_id INTEGER PRIMARY KEY,
+wed_id NVARCHAR(50) PRIMARY KEY,
 no_guests INTEGER NOT NULL,
 wed_date DATE NOT NULL,
 venue_name VARCHAR(50),

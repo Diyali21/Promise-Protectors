@@ -1,11 +1,13 @@
 from flask import Flask, render_template
+from flask_login import LoginManager
 from sqlalchemy.sql import text
 
 from config import Config
 from extensions import db
-from models.users import User
+from models.user import User
 from models.venue import Venue
 from routes.about_bp import about_bp
+from routes.auth_bp import auth_bp
 from routes.confirmation_bp import confirmation_bp
 from routes.contact_us_bp import contact_us_bp
 from routes.dashboard_bp import dashboard_bp
@@ -23,6 +25,13 @@ def create_app():
 
     # Initialize the DB
     db.init_app(app)
+    # login_manager = LoginManager()
+    # login_manager.init_app(app)
+    # # login_manager.login_view = "auth_bp.login_page"  # Redirects unauthorized users to the login page (have to change this line)
+
+    # @login_manager.user_loader
+    # def load_user(user_id):
+    #     return User.query.get(user_id)  # Maintain tokens for specific user
 
     with app.app_context():
         try:
@@ -42,6 +51,7 @@ def create_app():
     app.register_blueprint(get_cover_bp, url_prefix="/get-cover")
     app.register_blueprint(history_bp, url_prefix="/history")
     app.register_blueprint(confirmation_bp, url_prefix="/confirmation")
+    app.register_blueprint(auth_bp)
     return app
 
 
