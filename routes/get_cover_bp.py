@@ -3,6 +3,7 @@ from pprint import pprint
 from flask import Blueprint, flash, redirect, render_template, request, url_for
 
 from extensions import db
+from models.venue import Venue
 from models.wedding import Wedding
 
 HTTP_NOT_FOUND = 404
@@ -11,7 +12,8 @@ get_cover_bp = Blueprint("get_cover_bp", __name__)
 
 @get_cover_bp.get("/")
 def get_cover_bp_page():
-    return render_template("get-cover.html")
+    venue = Venue.query.all()
+    return render_template("get-cover.html", venue=venue)
 
 
 @get_cover_bp.post("/")
