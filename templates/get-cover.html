@@ -170,6 +170,10 @@
                         >
                       </label>
                     </div>
+                    {% for cover in covers %}
+                    <input type="checkbox" name="covers" value="{{cover.cover_id}}">
+                    <label>{{cover.cover_name}} - {{cover.cover_price}}</label>
+                    {% endfor %}
                   </div>
                 </div>
               </div>
