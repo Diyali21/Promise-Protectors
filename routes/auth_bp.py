@@ -22,6 +22,9 @@ def login_page():
 @auth_bp.post("/register")
 def submit_register_page():
     username = request.form.get("username")
+    fullname = request.form.get("name")
+    email = request.form.get("email")
+    contact_no = request.form.get("contact_no")
     password = request.form.get("password")
     confirm = request.form.get("confirm")
     try:
@@ -39,6 +42,9 @@ def submit_register_page():
         hashed_password = generate_password_hash(password)
         data = {
             "username": username,
+            "fullname": fullname,
+            "email": email,
+            "contact_no": contact_no,
             "password": hashed_password,
         }
 
