@@ -1,7 +1,9 @@
+from flask_login import UserMixin
+
 from extensions import db
 
 
-class User(db.Model):
+class User(UserMixin, db.Model):
     __tablename__ = "users"
     username = db.Column(db.String(25), primary_key=True)
     fullname = db.Column(db.String(50), nullable=False)

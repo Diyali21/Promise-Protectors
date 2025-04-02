@@ -27,7 +27,6 @@ def create_cover():
         print(new_cover, new_cover.to_dict())
         db.session.add(new_cover)
         db.session.commit()
-        flash("Success")
         return redirect(url_for("confirmation_bp.confirmation_page"))
     except Exception as e:
         db.session.rollback()  # Undo: Restore the data | After commit cannot undo
