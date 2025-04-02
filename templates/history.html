@@ -4,12 +4,15 @@
   </head>
   <body>
     <div class="container">
+       {% for wed in wedding %}
       <div class="words">
-        <h2>Wedding Event No:</h2>
-        <h4>No. of guests:</h4>
-        <h4>Wedding Date:</h4>
-        <h4>Venue Name:</h4>
-        <h4>Total Price:</h4>
+        <h2>Wedding Event No: {{wed.wed_id}}</h2>
+        <h4>No. of guests: {{wed.no_guests}}</h4>
+        <h4>Wedding Date: {{wed.wed_date}}</h4>
+        <h4>Venue Name: {{wed.venue_name}}</h4>
+        <h4>Total Price: {{wed.total_price}}</h4>
+      </div>
+       {% endfor %}
       </div>
     </div>
   </body>
