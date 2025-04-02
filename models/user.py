@@ -19,3 +19,6 @@ class User(UserMixin, db.Model):
             "contact_no": self.contact_no,
             "password": self.password,
         }
+
+    def get_id(self):
+        return self.username
