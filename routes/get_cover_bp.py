@@ -1,6 +1,7 @@
 from pprint import pprint
 
 from flask import Blueprint, flash, redirect, render_template, request, url_for
+from flask_login import current_user
 
 from extensions import db
 from models.insurance_cover import InsureCover
@@ -40,6 +41,7 @@ def create_cover():
             wed_date=data["wed_date"],
             venue_name=data["venue_name"],
             total_price=total_price,
+            username=current_user.username,
         )
         db.session.add(new_cover)
         db.session.commit()
