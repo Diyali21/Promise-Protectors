@@ -1,70 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Partners</title>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <style>
-      body {
-        display: grid;
-        place-content: center;
-        min-height: 100vh;
-        margin: 0;
-      }
-      .card {
-        display: flex;
-        gap: 20px;
-        justify-content: center;
-        align-items: center;
-        max-width: 900px;
-        padding-left: 50px;
-        border-radius: 10px;
-        background-color: white;
-        padding-left: 20px;
-        margin-left: 20px;
-
-        border: 0cap;
-      }
-      .partners-container {
-        padding-left: 20px;
-        padding-bottom: 20px;
-        box-shadow: 0.5rem;
-      }
-      .partners-headers h1 {
-        font-size: 2.5rem;
-        text-align: center;
-        color: #c71585;
-      }
-      .header-text {
-        font-size: 1.5rem;
-        text-align: center;
-        color: #000;
-      }
-      .card-text {
-        font-size: 1.25rem;
-        width: 100%;
-      }
-      .row {
-        --bs-gutter-x: 1.5rem;
-        --bs-gutter-y: 0;
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: calc(-1 * var(--bs-gutter-y));
-        margin-right: calc(-0.5 * var(--bs-gutter-x));
-        margin-left: calc(-0.5 * var(--bs-gutter-x));
-        gap: 20px;
-        justify-content: space-between;
-        background-color: rgb(239, 207, 212, 0.5);
-      }
-      .row-cols-md-3 > * {
-        flex: 0 0 auto;
-        width: 38.333333%;
-      }
-    </style>
+{% extends "base.html" %} {% set active_page = '/partners' %}{% block title %}About {% endblock %}{% block head_content %}
+<link rel="stylesheet" href="/static/css/partners.css" />
+    {% endblock %} {% block content %}
   </head>
   <body>
     <div class="card">
@@ -116,3 +52,4 @@
     </div>
   </body>
 </html>
+{% endblock %}
