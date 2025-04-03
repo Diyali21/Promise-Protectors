@@ -71,14 +71,17 @@
               ><i class="fa-solid fa-book"></i> History</a
             >
           </li>
+          {% if current_user.is_authenticated %}
+          <li class="spacing-words"><a class="nav-link" href="/logout">Logout</a></li>
+          <li class="spacing-words">
+            <a class="nav-link"> <i class="fa-solid fa-user"></i> Hello, {{current_user.username}}</a></li>
+          {% else %}
+          <li class="spacing-words"><a class="nav-link" href="/login">Login</a></li>
+          {% endif %}
+          </li>
         </ul>
         <ul class="nav-link-container">
-          {% if current_user.is_authenticated %}
-          <li><a href="/logout">Logout</a></li>
-          <li><p>{{current_user.username}}</p></li>
-          {% else %}
-          <li><a href="/login">Login</a></li>
-          {% endif %}
+
         </ul>
       </nav>
     </header>
