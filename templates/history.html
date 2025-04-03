@@ -4,7 +4,7 @@
   </head>
   <body>
     <div class="container">
-       {% for wed in wedding %}
+       {% for wed in wedding %} {% if (wed.username == user.username) %}
       <div class="words">
         <h2>Wedding Event No: {{wed.wed_id}}</h2>
         <h4>No. of guests: {{wed.no_guests}}</h4>
@@ -12,7 +12,7 @@
         <h4>Venue Name: {{wed.venue_name}}</h4>
         <h4>Total Price: {{wed.total_price}}</h4>
       </div>
-       {% endfor %}
+       {% endif %} {% endfor %}
       </div>
     </div>
   </body>
