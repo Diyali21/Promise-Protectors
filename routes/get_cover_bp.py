@@ -29,11 +29,15 @@ def create_cover():
     }
 
     total_price = 0
+    coverage_name = []
+    coverage_price = []
 
-    for cover_name in data["selected_cover"]:
-        cover = InsureCover.query.get(cover_name)
+    for cover_details in data["selected_cover"]:
+        cover = InsureCover.query.get(cover_details)
         if cover:
             total_price += cover.cover_price
+            coverage_name.append(cover.cover_name)
+            coverage_price.append(cover.cover_price)
 
     try:
         new_cover = Wedding(
@@ -47,8 +51,16 @@ def create_cover():
         db.session.commit()
 
         return redirect(
-            url_for("confirmation_bp.confirmation_page", total_price=total_price)
+            url_for(
+                "confirmation_bp.confirmation_page",
+                total_price=total_price,
+                wed_date=data["wed_date"],
+                coverage_name=coverage_name,
+                coverage_price=coverage_price,
+                venue_name=data["venue_name"],
+            ),
         )
+
     except Exception as e:
         db.session.rollback()  # Undo: Restore the data | After commit cannot undo
         return redirect(url_for("get_cover_bp.create_cover"))

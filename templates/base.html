@@ -61,7 +61,7 @@
           <li class="spacing-words">
             <a class="nav-link {% if active_page == '/contact-us' %}active{% endif %}"
               href="/contact-us"
-              ><i class="fa-solid fa-handshake"></i> Contact</a
+              ><i class="fa-solid fa-phone"></i> Contact</a
             >
           </li>
           <li class="spacing-words">
@@ -80,7 +80,7 @@
           {% if current_user.is_authenticated %}
           <li class="spacing-words"><a class="nav-link" href="/logout">Logout</a></li>
           <li class="spacing-words">
-            <a class="nav-link"> <i class="fa-solid fa-user"></i> Hello, {{current_user.username}}</a></li>
+            <a class="nav-link"> <i class="fa-solid fa-user"></i> Hi, {{current_user.username}}</a></li>
           {% else %}
           <li class="spacing-words"><a class="nav-link" href="/login">Login</a></li>
           {% endif %}
