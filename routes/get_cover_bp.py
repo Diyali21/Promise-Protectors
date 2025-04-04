@@ -5,6 +5,8 @@ from flask_login import current_user
 
 from extensions import db
 from models.insurance_cover import InsureCover
+from models.policy_cover import PolicyCover
+from models.policy_user import PolicyUser
 from models.venue import Venue
 from models.wedding import Wedding
 
@@ -31,6 +33,7 @@ def create_cover():
     total_price = 0
     coverage_name = []
     coverage_price = []
+    cover_id = []
 
     for cover_details in data["selected_cover"]:
         cover = InsureCover.query.get(cover_details)
@@ -38,6 +41,7 @@ def create_cover():
             total_price += cover.cover_price
             coverage_name.append(cover.cover_name)
             coverage_price.append(cover.cover_price)
+            cover_id.append(cover.cover_id)
 
     try:
         new_cover = Wedding(
@@ -47,8 +51,11 @@ def create_cover():
             username=current_user.username,
             venue_id=data["venue_id"],
         )
-        print(new_cover, new_cover.to_dict())
+
+        new_policy_user = PolicyUser(username=current_user.username)
+
         db.session.add(new_cover)
+        db.session.add(new_policy_user)
         db.session.commit()
 
         return redirect(
@@ -59,6 +66,8 @@ def create_cover():
                 coverage_name=coverage_name,
                 coverage_price=coverage_price,
                 venue_id=data["venue_id"],
+                cover_id=cover_id,
+                policy_id=new_policy_user.policy_id,
             ),
         )
 
