@@ -12,7 +12,7 @@ history_bp = Blueprint("history_bp", __name__)
 
 @history_bp.get("/")
 def history_bp_page():
-    wedding = Wedding.query.all()
-    today = datetime.today().date()
+    now = datetime.now()
+    history = Wedding.query.filter(Wedding.wed_date < now).all()
 
-    return render_template("history.html", wedding=wedding, user=current_user)
+    return render_template("history.html", user=current_user, history=history)
