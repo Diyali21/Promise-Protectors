@@ -1,6 +1,7 @@
 from pprint import pprint
 
 from flask import Blueprint, flash, redirect, render_template, request, url_for
+from flask_login import current_user
 
 from extensions import db
 from models.insurance_cover import InsureCover
@@ -28,11 +29,15 @@ def create_cover():
     }
 
     total_price = 0
+    coverage_name = []
+    coverage_price = []
 
-    for cover_name in data["selected_cover"]:
-        cover = InsureCover.query.get(cover_name)
+    for cover_details in data["selected_cover"]:
+        cover = InsureCover.query.get(cover_details)
         if cover:
             total_price += cover.cover_price
+            coverage_name.append(cover.cover_name)
+            coverage_price.append(cover.cover_price)
 
     try:
         new_cover = Wedding(
@@ -40,13 +45,22 @@ def create_cover():
             wed_date=data["wed_date"],
             venue_name=data["venue_name"],
             total_price=total_price,
+            username=current_user.username,
         )
         db.session.add(new_cover)
         db.session.commit()
 
         return redirect(
-            url_for("confirmation_bp.confirmation_page", total_price=total_price)
+            url_for(
+                "confirmation_bp.confirmation_page",
+                total_price=total_price,
+                wed_date=data["wed_date"],
+                coverage_name=coverage_name,
+                coverage_price=coverage_price,
+                venue_name=data["venue_name"],
+            ),
         )
+
     except Exception as e:
         db.session.rollback()  # Undo: Restore the data | After commit cannot undo
         return redirect(url_for("get_cover_bp.create_cover"))

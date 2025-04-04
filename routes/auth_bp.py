@@ -82,6 +82,8 @@ def submit_login_page():
         if not check_password_hash(user_from_db.password, password):
             raise ValueError("Credentials are invalid")
 
+        login_user(user_from_db)
+
         return redirect(url_for("main_bp.home_page"))
 
     except Exception as e:

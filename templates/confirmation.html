@@ -4,6 +4,10 @@
 </head>
 <body>
     <div class = "container confirmation-container">
+      {% for venue in venues %} {% if venue_name == venue.name %}
+      <img class="venue-pic" src="{{venue.venue_image}}" alt="">
+      {% endif %} {% endfor %}
+      <div class="info-container">
       <div class="text-center header">
                 <h1>Congratulations!</h1>
                  <p class="hero">Here is a detailed breakdown of your selected insurance policy: </p>
@@ -15,11 +19,11 @@
           <div class="row">
             <div class="col-md-6">
               <p class="mb-1">Premium </p>
-               <p class="premim-amount">R1 500pm</p>
+               <p class="premim-amount">R{{total_price}}</p>
             </div>
             <div class="col-md-6 text-md-end">
-              <p class="mb-1">Policy  Period</p>
-            <p class="mb-0">June 30, 2025-October 29, 2025</p>
+              <p class="mb-1">Policy Date</p>
+            <p class="mb-0">{{wed_date}}</p>
           </div>
 
           </div>
@@ -34,20 +38,12 @@
             <th class="text-end">Limit</th>
    </tr>
     <tbody class="table table-sm">
+      {% for i in range(coverage_name|length) %}
     <tr>
-      <td class="coverage-item">Property Damage</td>
-      <td class="text-end amount">R15 000</td>
+      <td class="coverage-item">{{coverage_name[i]}}</td>
+      <td class="text-end amount">R{{coverage_price[i]}}</td>
     </tr>
-    <tr>
-      <td class="coverage-item">Supplier No Show</td>
-      <td class="text-end amount">R15 000</td>
-
-    </tr>
-    <tr>
-      <td class="coverage-item">Event Cancellation</td>
-      <td class="text-end amount">R15 000</td>
-
-    </tr>
+  {% endfor %}
 
   </tbody>
 </table>
@@ -63,7 +59,8 @@
       <div>
         <a href="#">Download PDF</a>
       </div>
-      <button class="btn btn-danger" type="submit">Next</button>
+      <a href="/"><button class="btn btn-success" type="submit">Next</button></a>
+    </div>
     </div>
 </body>
 </html>

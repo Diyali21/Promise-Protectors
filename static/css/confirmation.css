@@ -4,7 +4,10 @@ body {
   color: #333;
 }
 .confirmation-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   max-width: 800px;
+  gap: 500px;
   margin: 50px;
 }
 .header {
@@ -50,4 +53,14 @@ h1 {
   margin-bottom: 10px;
   text-align: center;
   font-size: 1.1rem;
+}
+
+.venue-pic {
+  width: 700px;
+  height: 800px;
+}
+
+.info-container {
+  display: grid;
+  width: 500px;
 }

@@ -1,0 +1,191 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding-top: 10px;
+  background-color: #fff0f5;
+  color: #333333;
+}
+.home-container {
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding-bottom: 20px;
+}
+header {
+  background-color: #ff4f9e;
+  color: var(--white);
+  padding: 20px;
+  text-align: center;
+}
+.venues-section {
+  padding: 20px;
+}
+.section-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #cc3377;
+  text-align: center;
+}
+.venue-tiles {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.venue-tile {
+  flex: 1;
+  background-color: #ffcce3;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.venue-tile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+.venue-tile.selected {
+  border: 2px solid #ff4f9e;
+  background-color: rgba(255, 79, 158, 0.1);
+}
+.venue-name {
+  display: flex;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  gap: 10px;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.user-venue-name {
+  display: flex;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  gap: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  align-content: flex-start;
+  color: #000;
+}
+
+.venue-price {
+  font-size: 30px;
+  font-weight: 600;
+  background-color: #ff69b4;
+}
+.current-venue-section {
+  padding: 20px;
+
+  margin-bottom: 20px;
+}
+.policy-section {
+  padding: 20px;
+}
+.policy-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-bottom: 20px;
+}
+.policy-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.policy-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #cc3377;
+}
+.edit-button {
+  background-color: transparent;
+  color: #ff4f9e;
+  border: 1px solid #ff4f9e;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.edit-button:hover {
+  background-color: #ffcce3;
+}
+.coverage-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #ffcce3;
+}
+.total-section {
+  background-color: #ffcce3;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 12px;
+  margin: 0 20px 20px 20px;
+}
+.total-label {
+  font-size: 20px;
+  font-weight: bold;
+}
+.total-price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff4f9e;
+}
+.action-button {
+  display: block;
+  width: 90%;
+  margin: 20px auto;
+  background-color: #ff4f9e;
+  color: var(--white);
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.action-button:hover {
+  background-color: #cc3377;
+}
+img {
+  width: 400px;
+}
+.user-venue {
+  background-color: white;
+}
+.user-venue-price {
+  text-align: center;
+  justify-content: center;
+}
+.user-venues {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
+  justify-content: space-around;
+  align-items: center;
+}
+.date {
+  font-size: 10px;
+  color: #cc3377;
+}
+.user-venue-price {
+  font-size: 30px;
+  font-weight: 600;
+  background-color: #ff69b4;
+}
