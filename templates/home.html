@@ -144,6 +144,9 @@
 
       <div class="user-venue-card">
         {% if upcoming_events %}
+        <div class="user_info">      <h2>Welcome, {{user.username}}</h2>
+      <p>Wedding Date:{{event.wed_date}} </p>
+      <p>Guests:{{event.no_guests}} </p></div>
          <h1>Your Upcoming Events</h1>
           {% for events in upcoming_events %}
       <div class="user-card-header">
