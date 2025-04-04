@@ -20,6 +20,7 @@ def get_user_details(username):
 
 #  API / Endpoint
 @main_bp.get("/")
+@login_required
 def home_page():
     username = session.get("username")
     user = get_user_details(username)
