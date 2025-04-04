@@ -33,7 +33,7 @@ def home_page():
     for wedding in weddings:
         upcoming_events.append(
             {
-                "venue_name": wedding.venue_name,
+                "venue_id": wedding.venue_id,
                 "wedding_date": wedding.wed_date,
                 "no_guests": wedding._no_guests,
                 "total_price": wedding.total_price,

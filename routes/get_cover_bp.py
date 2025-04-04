@@ -24,7 +24,7 @@ def create_cover():
     data = {
         "no_guests": request.form.get("no_guests"),
         "wed_date": request.form.get("wed_date"),
-        "venue_name": request.form.get("venue_name"),
+        "venue_id": request.form.get("venue_id"),
         "selected_cover": request.form.getlist("covers"),
     }
 
@@ -43,10 +43,11 @@ def create_cover():
         new_cover = Wedding(
             no_guests=data["no_guests"],
             wed_date=data["wed_date"],
-            venue_name=data["venue_name"],
             total_price=total_price,
             username=current_user.username,
+            venue_id=data["venue_id"],
         )
+        print(new_cover, new_cover.to_dict())
         db.session.add(new_cover)
         db.session.commit()
 
@@ -57,7 +58,7 @@ def create_cover():
                 wed_date=data["wed_date"],
                 coverage_name=coverage_name,
                 coverage_price=coverage_price,
-                venue_name=data["venue_name"],
+                venue_id=data["venue_id"],
             ),
         )
 

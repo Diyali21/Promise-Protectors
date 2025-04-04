@@ -6,13 +6,16 @@
     <div class="container">
        {% for wed in history %} {% if (wed.username == user.username) %}
       <div class="words">
+        {% for data in venue_details %} {% if wed.venue_id == data.venue_id %}
+        <img class="history-pic" src="{{data.venue_image}}" alt="">
+        {% endif %} {% endfor %}
         <h2>Wedding Event No: {{wed.wed_id}}</h2>
         <h4>No. of guests: {{wed.no_guests}}</h4>
         <h4>Wedding Date: {{wed.wed_date}}</h4>
         <h4>Venue Name: {{wed.venue_name}}</h4>
         <h4>Total Price: {{wed.total_price}}</h4>
       </div>
-       {% endif %} {% endfor %}
+        {% endif %} {% endfor %}
       </div>
     </div>
   </body>

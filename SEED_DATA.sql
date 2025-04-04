@@ -6,26 +6,36 @@ max_guests INTEGER NOT NULL,
 venue_image NVARCHAR(255) NOT NULL,
 venue_price FLOAT NOT NULL);
 
+
 CREATE TABLE users(
-username VARCHAR(25) PRIMARY KEY,
-fullName VARCHAR(50),
-email VARCHAR(50),
-contact_no VARCHAR(15),
-password VARCHAR(200));
+username NVARCHAR(25) PRIMARY KEY,
+fullName NVARCHAR(50) NOT NULL,
+email NVARCHAR(50) NOT NULL,
+contact_no NVARCHAR(15) NOT NULL,
+password NVARCHAR(200) NOT NULL);
 
 CREATE TABLE wedding(
 wed_id NVARCHAR(50) PRIMARY KEY,
 no_guests INTEGER NOT NULL,
 wed_date DATE NOT NULL,
-venue_name VARCHAR(50),
 total_price FLOAT NOT NULL,
-username VARCHAR(25) FOREIGN KEY REFERENCES users(username)
+username NVARCHAR(25) FOREIGN KEY REFERENCES users(username),
+venue_id INTEGER FOREIGN KEY REFERENCES venue(venue_id)
 );
 
 CREATE TABLE insurance_cover(
 cover_id INTEGER PRIMARY KEY,
 cover_name NVARCHAR(50) NOT NULL,
 cover_price FLOAT NOT NULL);
+
+CREATE TABLE policy_user(
+policy_id NVARCHAR(50) PRIMARY KEY,
+username NVARCHAR(25) FOREIGN KEY REFERENCES users(username));
+
+CREATE TABLE policy_cover(
+policy_cover_id NVARCHAR(50) PRIMARY KEY,
+policy_id NVARCHAR(50) FOREIGN KEY REFERENCES policy_user(policy_id),
+cover_id INTEGER FOREIGN KEY REFERENCES insurance_cover(cover_id));
 
 INSERT INTO insurance_cover VALUES
 (1, 'Property Damage', 3000),

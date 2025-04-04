@@ -16,8 +16,8 @@ def confirmation_page():
     wed_date = request.args.get("wed_date")
     coverage_name = request.args.getlist("coverage_name")
     coverage_price = request.args.getlist("coverage_price")
-    venue_name = request.args.get("venue_name")
-    venues = Venue.query.all()
+    venue_id = request.args.get("venue_id")
+    venues = Venue.query.filter_by(venue_id=venue_id)
 
     return render_template(
         "confirmation.html",
@@ -25,6 +25,6 @@ def confirmation_page():
         wed_date=wed_date,
         coverage_name=coverage_name,
         coverage_price=coverage_price,
-        venue_name=venue_name,
+        venue_id=venue_id,
         venues=venues,
     )

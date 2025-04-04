@@ -25,3 +25,8 @@ h2,
 h4 {
   font-size: 20px;
 }
+
+.history-pic {
+  width: 300px;
+  height: 300px;
+}

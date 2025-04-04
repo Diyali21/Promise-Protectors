@@ -2,13 +2,16 @@ body {
   display: grid;
   justify-content: center;
   color: #333;
+  font-size: 22px;
 }
 .confirmation-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   max-width: 800px;
-  gap: 500px;
-  margin: 50px;
+  gap: 400px;
+  margin: 0px;
+  padding-left: 10px;
+  padding-top: 50px;
 }
 .header {
   margin-bottom: 30px;
@@ -56,11 +59,11 @@ h1 {
 }
 
 .venue-pic {
-  width: 700px;
-  height: 800px;
+  width: 750px;
+  height: 750px;
 }
 
 .info-container {
   display: grid;
-  width: 500px;
+  width: 700px;
 }

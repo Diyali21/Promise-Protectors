@@ -4,7 +4,7 @@
 </head>
 <body>
     <div class = "container confirmation-container">
-      {% for venue in venues %} {% if venue_name == venue.name %}
+      {% for venue in venues %} {% if venue.venue_id == venue.venue_id %}
       <img class="venue-pic" src="{{venue.venue_image}}" alt="">
       {% endif %} {% endfor %}
       <div class="info-container">

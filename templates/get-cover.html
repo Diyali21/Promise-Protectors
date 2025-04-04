@@ -61,10 +61,10 @@
                 />
               </div>
               <div class="mb-4">
-                <label for="venue" class="form-label">Select Venue</label>
-                <select class="form-select" id="venue_name" name="venue_name" required>
+                <label for="venue_id" class="form-label">Select Venue</label>
+                <select class="form-select" id="venue_id" name="venue_id" required>
                   {% for data in venue %}
-                  <option value="{{data.name}}" data-capacity="{{data.max_guests}}">
+                  <option value="{{data.venue_id}}" data-capacity="{{data.max_guests}}">
                     {{data.name}} (Max: {{data.max_guests}} guests)
                   </option>
                   {% endfor %}
