@@ -22,10 +22,10 @@
   <label for="username">Username</label>
 </div>
 <div class="form-floating mb-3">
-  <input type="password" class="form-control" id="password" placeholder="" required name="password" minlength="5" pattern="(?=.*[0-9])(?=.*[!@#$%^&*]).*">
+  <input type="password" class="form-control" id="password" placeholder="" required name="password" minlength="8" pattern="(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}">
   <label for="password">Password</label>
   <div></div>
-  <small>Password must contain at least 1 digit and a special character !@#$%^&*</small>
+  <small>Password must contain 8 or more characters that are of at least one number,uppercase, special character !@#$%^&*</small>
   <span class="form-text" id="basic-addon4"></span>
 </div>
 
