@@ -28,7 +28,6 @@ def submit_register_page():
     password = request.form.get("password")
     confirm = request.form.get("confirm")
     try:
-        # 🛡️ Validations
         if not username:
             raise ValueError("Username must be filled")
 
@@ -36,7 +35,13 @@ def submit_register_page():
             raise ValueError("Password must be filled")
 
         if password != confirm:
-            raise ValueError("Password does not match")
+            flash("Passwords do not match", "danger")
+            raise ValueError("Password does not match", "danger")
+
+        user_from_db = User.query.filter_by(username=username).first()
+
+        if user_from_db:
+            flash("Username already exists", "danger")
 
         # Only when all validation passes
         hashed_password = generate_password_hash(password)
@@ -48,6 +53,7 @@ def submit_register_page():
             "password": hashed_password,
         }
 
+        flash("User registered succesfully", "success")
         new_user = User(**data)
         db.session.add(new_user)
         db.session.commit()
@@ -77,17 +83,20 @@ def submit_login_page():
         user_from_db = User.query.filter_by(username=username).first()
 
         if not user_from_db:
+            flash("Username is incorrect, try again", "danger")
             raise ValueError("Credentials are invalid")
 
         if not check_password_hash(user_from_db.password, password):
+            flash("Password is incorrect, try again", "danger")
             raise ValueError("Credentials are invalid")
 
         login_user(user_from_db)
 
+        flash("You have been successfully logged in", "success")
+
         return redirect(url_for("main_bp.home_page"))
 
     except Exception as e:
-        print(user_from_db, username, password)
         print(e)
         db.session.rollback()
         return redirect(url_for("auth_bp.submit_login_page"))

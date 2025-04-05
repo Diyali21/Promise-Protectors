@@ -1,6 +1,7 @@
 from pprint import pprint
 
 from flask import Blueprint, render_template, request
+from flask_login import login_required
 
 from extensions import db
 from models.policy_cover import PolicyCover
@@ -12,6 +13,7 @@ confirmation_bp = Blueprint("confirmation_bp", __name__)
 
 #  API / Endpoint
 @confirmation_bp.get("/")
+@login_required
 def confirmation_page():
     total_price = request.args.get("total_price")
     wed_date = request.args.get("wed_date")

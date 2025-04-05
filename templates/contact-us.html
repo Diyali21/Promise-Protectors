@@ -19,7 +19,7 @@
     <form class="form-container">
       <div class="form-element">
         <label for="name">Name </label>
-        <input type="text" placeholder="Lana Lang" id="name" required />
+        <input type="text" placeholder="Lana Lang" id="name" required minlength="6"/>
       </div>
       <div class="form-element">
         <label for="email">Email </label>
@@ -28,6 +28,7 @@
           placeholder="lana21@gmail.com"
           id="email"
           required
+          pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Please enter a valid email address"
         />
       </div>
       <div class="form-element">
@@ -37,6 +38,7 @@
           placeholder="0841234567"
           id="contact"
           required
+          maxlength="10"
         />
       </div>
       <div class="form-element">
@@ -47,10 +49,13 @@
           placeholder="Add your message here"
           id="message"
           required
+          minlength="10"
+          maxlength="500"
         />
       </div>
           <h5>Alternatively, call us on <span>081 234 5678 </span></h5>
       <button class="btn btn-danger" type="submit">Submit</button>
+
     </form>
     </div>
   </body>

@@ -1,7 +1,7 @@
 from pprint import pprint
 
 from flask import Blueprint, flash, redirect, render_template, request, url_for
-from flask_login import current_user
+from flask_login import current_user, login_required
 
 from extensions import db
 from models.insurance_cover import InsureCover
@@ -15,6 +15,7 @@ get_cover_bp = Blueprint("get_cover_bp", __name__)
 
 
 @get_cover_bp.get("/")
+@login_required
 def get_cover_bp_page():
     venue = Venue.query.all()
     covers = InsureCover.query.all()

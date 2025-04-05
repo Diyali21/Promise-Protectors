@@ -8,6 +8,21 @@
 <link rel="stylesheet" href="/static/css/register.css" />
 </head>
 <body>
+   {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+            ></button>
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
 
   <form action="{{url_for('auth_bp.submit_register_page')}}"
   method="POST"
@@ -28,7 +43,7 @@
 
   <div class="col-12">
     <label for="email" class="form-label">Email Address</label>
-    <input type="email" class="form-control" id="email" placeholder="John@example.com" required name="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
+    <input type="email" class="form-control" id="email" placeholder="John@example.com" required name="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Please enter a valid email address">
 
   <div class="col-12">
     <label for="contact_no" class="form-label">Phone Number</label>

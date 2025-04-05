@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from flask import Blueprint, render_template, request
-from flask_login import current_user
+from flask_login import current_user, login_required
 
 from models.user import User
 from models.venue import Venue
@@ -12,6 +12,7 @@ history_bp = Blueprint("history_bp", __name__)
 
 
 @history_bp.get("/")
+@login_required
 def history_bp_page():
     now = datetime.now()
     venue_details = Venue.query.all()
