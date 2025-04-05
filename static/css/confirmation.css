@@ -67,3 +67,7 @@ h1 {
   display: grid;
   width: 700px;
 }
+
+.contain {
+  display: grid;
+}
