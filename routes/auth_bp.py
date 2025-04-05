@@ -92,8 +92,6 @@ def submit_login_page():
 
         login_user(user_from_db)
 
-        flash("You have been successfully logged in", "success")
-
         return redirect(url_for("main_bp.home_page"))
 
     except Exception as e:

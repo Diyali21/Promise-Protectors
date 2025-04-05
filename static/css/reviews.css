@@ -23,6 +23,7 @@ h1 {
   display: grid;
   justify-content: center;
   padding-left: 300px;
+  margin-bottom: 200px;
 }
 h5 {
   font-size: 25px;

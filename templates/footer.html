@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .footer-main-container {
+        background-color: rgb(239, 207, 212, 0.5);
+        display: grid;
+        color: black;
+        text-align: center;
+        bottom: 0;
+        width: 100%;
+        font-family: sans-serif;
+      }
+
+      .links-container {
+        display: grid;
+      }
+      .links {
+        list-style: none;
+        font-size: 15px;
+        margin-right: 35px;
+      }
+      .inner-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      .sign-up {
+        display: grid;
+        width: 200px;
+        height: 30px;
+        gap: 20px;
+        padding-top: 60px;
+        margin-left: 100px;
+      }
+      .promise-protectors {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .logo {
+        width: 180px;
+        height: 180px;
+        margin-left: 200px;
+        padding-top: 50px;
+      }
+      .description {
+        padding-left: 100px;
+        width: 300px;
+        padding-top: 50px;
+      }
+      .link-heading {
+        margin: 0px;
+        padding-top: 50px;
+      }
+      .bottom-line {
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <footer class="footer-main-container">
+      <div class="inner-container">
+        <div class="promise-protectors">
+          <img
+            class="logo"
+            src="/static/PROMISE PROTECTORS_20250401_114617_0000.png"
+            alt=""
+          />
+          <p class="description">
+            Promise Protectors is your trusted companion in safeguarding your
+            wedding plans. We provide comprehensive wedding insurance coverage,
+            giving you peace of mind and financial protection against unexpected
+            events
+          </p>
+        </div>
+        <div class="links-container">
+          <h3 class="link-heading">Links</h3>
+          <ul class="links">
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/about">About</a>
+            </li>
+            <li>
+              <a href="/partners">Partners</a>
+            </li>
+            <li>
+              <a href="/faq">FAQ</a>
+            </li>
+            <li>
+              <a href="/contact-us">Contact Us</a>
+            </li>
+            <li>
+              <a href="/reviews">Reviews</a>
+            </li>
+            <li>
+              <a href="/history">History</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <form class="sign-up">
+            <label for="exampleInputEmail1">Sign up for updates</label>
+            <div class="form-group">
+              <input
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Enter email"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <p class="bottom-line">✨ 2025 Promise Protectors</p>
+    </footer>
+  </body>
+</html>
