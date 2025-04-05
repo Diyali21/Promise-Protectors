@@ -26,9 +26,7 @@
     .container {
         width: 100%;
         margin: 0 auto;
-        background-color: white;
-        border-radius: 20px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
         overflow: hidden;
         padding-bottom: 20px;
       }
@@ -102,6 +100,7 @@
     padding-top: 50px;
     text-align: center;
     color:  #cc3377;
+    width: 100%;
   }
   h2{
     margin-bottom: 0;
@@ -120,9 +119,7 @@
         text-align: center;
         padding-top: 10px;
       }
-  .main-container{
-        background-color: rgba(255, 204, 227,0.35);
-      }
+
   .venues-section-header{
     font-size: 28px;
         font-weight: bold;
@@ -144,6 +141,9 @@
 
       <div class="user-venue-card">
         {% if upcoming_events %}
+        <div class="user_info">      <h2>Welcome, {{user.username}}</h2>
+      <p>Wedding Date:{{event.wed_date}} </p>
+      <p>Guests:{{event.no_guests}} </p></div>
          <h1>Your Upcoming Events</h1>
           {% for events in upcoming_events %}
       <div class="user-card-header">
