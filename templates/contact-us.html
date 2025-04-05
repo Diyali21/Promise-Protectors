@@ -10,7 +10,7 @@
   </head>
     <body>
     <div class="main-container">
-    <h3>CONTACT US</h3>
+    <h3 class="page-heading">CONTACT US</h3>
     <p>
       Take a deep breath, we are here to ease your wedding worries. Please feel
       free to complete and submit the form with your details and we will get
@@ -18,42 +18,26 @@
     </p>
     <form class="form-container">
       <div class="form-element">
-        <label for="name">Name </label>
-        <input type="text" placeholder="Lana Lang" id="name" required minlength="6"/>
-      </div>
-      <div class="form-element">
-        <label for="email">Email </label>
-        <input
-          type="email"
-          placeholder="lana21@gmail.com"
-          id="email"
-          required
-          pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Please enter a valid email address"
-        />
-      </div>
-      <div class="form-element">
-        <label for="contact">Contact Number </label>
-        <input
-          type="number"
-          placeholder="0841234567"
-          id="contact"
-          required
-          maxlength="10"
-        />
-      </div>
-      <div class="form-element">
-        <label for="message">Message </label>
-        <input
-          class="msg-box"
-          type="text"
-          placeholder="Add your message here"
-          id="message"
-          required
+        <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Name</label>
+  <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Lana Lang">
+</div>
+ <div class="form-element">
+        <div class="mb-3">
+  <label for="email" class="form-label">Email</label>
+  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="lanalang@gmail.com">
+</div>
+ <div class="input-group mb-3">
+  <span class="input-group-text">+27</span>
+  <input type="text" class="form-control" id="contact_no" placeholder="0812345678" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Please enter a valid email address">
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Add your message here" rows="3"  required
           minlength="10"
-          maxlength="500"
-        />
-      </div>
-          <h5>Alternatively, call us on <span>081 234 5678 </span></h5>
+          maxlength="500"></textarea>
+</div>
+          <h6>Alternatively, call us on <span>081 234 5678 </span></h6>
       <button class="btn btn-danger" type="submit">Submit</button>
 
     </form>
