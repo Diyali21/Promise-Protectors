@@ -70,7 +70,7 @@
                 <select class="form-select" id="venue_id" name="venue_id" required>
                   {% for data in venue %}
                   <option value="{{data.venue_id}}" data-capacity="{{data.max_guests}}">
-                    {{data.name}} (Max: {{data.max_guests}} guests)
+                    {{data.name}} - R{{data.venue_price}} (Max: {{data.max_guests}} guests)
                   </option>
                   {% endfor %}
                 </select>

@@ -35,6 +35,12 @@ def create_cover():
     coverage_name = []
     coverage_price = []
     cover_id = []
+    venue_price = 0
+
+    venue = Venue.query.get(data["venue_id"])
+    if venue:
+        venue_price = venue.venue_price
+        total_price += venue.venue_price
 
     for cover_details in data["selected_cover"]:
         cover = InsureCover.query.get(cover_details)
@@ -69,6 +75,7 @@ def create_cover():
                 venue_id=data["venue_id"],
                 cover_id=cover_id,
                 policy_id=new_policy_user.policy_id,
+                venue_price=venue_price,
             ),
         )
 
