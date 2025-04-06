@@ -45,7 +45,7 @@
   .card-header2 {
     padding-right: 436px;
   }
-  .user-image1, .user-image2  {
+  .user-image {
     width: 95%;
     height: 400px;
     object-fit: cover;
@@ -138,55 +138,33 @@
 <body>
   <div class="container">
     <div class="user-venue-container">
-
       <div class="user-venue-card">
-        {% if upcoming_events %}
-        <div class="user_info">      <h2>Welcome, {{user.username}}</h2>
-      <p>Wedding Date:{{event.wed_date}} </p>
-      <p>Guests:{{event.no_guests}} </p></div>
+        <div class="user_info">      <h2>Welcome, {{current_user.username}}</h2>
          <h1>Your Upcoming Events</h1>
-          {% for events in upcoming_events %}
+         {% for wed in weddings %} {% if wed.username == current_user.username %}
       <div class="user-card-header">
         <div class="card-header1">
-          <h5>{{event.venue_id}}</h5>
-          <p>Wedding Date:{{event.wed_date}} </p>
-          <p>Guests:{{event.no_guests}}</p>
+          <h5></h5>
+          <p>Wedding Date: {{wed.wed_date}}</p>
+          <p>Guests: {{wed.no_guests}}</p>
+           <p>Total Price: {{wed.total_price}}</p>
         </div>
-        {% endfor %}
+
         <div class="user-images">
-        <img
-          class="user-image1"
-          src="https://weddedwonderland.com/wp-content/uploads/2020/01/w9MAYKnQ.jpeg"
-          alt=""
-        />
-        <img
-          class="user-image2"
-          src="https://image.wedmegood.com/resized-nw/1300X/wp-content/uploads/2018/12/Moving-Pictures.jpg"
-          alt=""
-        />
+           {% for data in venue_details %} {% if wed.venue_id == data.venue_id %}
+        <img class="user-image" src="{{data.venue_image}}" alt="">
+        {% endif %} {% endfor %}
+        {% endif %}{% endfor %}
       </div>
-        {% else %}
+      {% if not weddings %}
         <h1>You dont have any upcoming events</h1>
-        <h4>Popular Venues:</h4>
         {% endif %}
-      <div class="user-images">
-        <img
-          class="user-image1"
-          src="https://weddedwonderland.com/wp-content/uploads/2020/01/w9MAYKnQ.jpeg"
-          alt=""
-        />
-        <img
-          class="user-image2"
-          src="https://image.wedmegood.com/resized-nw/1300X/wp-content/uploads/2018/12/Moving-Pictures.jpg"
-          alt=""
-        />
-      </div>
+    </div>
     </div>
     </div>
 
     <div class="venues-section-header">
-      <h2>Available Venues:</h2>
-      <a href="{{url_for('venue_details_bp.venue_details_bp_page')}}" class="view-all-butn">View more </a>
+      <h2>Popular Venues:</h2>
       </div>
 
 

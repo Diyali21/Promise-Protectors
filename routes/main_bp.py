@@ -1,3 +1,4 @@
+from datetime import datetime
 from pprint import pprint
 from webbrowser import get
 
@@ -6,6 +7,7 @@ from flask_login import login_required
 
 from models import wedding
 from models.user import User
+from models.venue import Venue
 from models.wedding import Wedding
 
 HTTP_NOT_FOUND = 404
@@ -20,24 +22,16 @@ def get_user_details(username):
 
 #  API / Endpoint
 @main_bp.get("/")
-@login_required
 def home_page():
     username = session.get("username")
     user = get_user_details(username)
 
     if not user:
         return redirect(url_for("auth_bp.login_page"))
+    now = datetime.now()
 
-    weddings = Wedding.query.filter_by(username=username)
+    weddings = Wedding.query.filter(Wedding.wed_date > now).all()
 
-    upcoming_events = []
-    for wedding in weddings:
-        upcoming_events.append(
-            {
-                "venue_id": wedding.venue_id,
-                "wedding_date": wedding.wed_date,
-                "no_guests": wedding._no_guests,
-                "total_price": wedding.total_price,
-            }
-        )
-    return render_template("home.html", user=user, upcoming_events=upcoming_events)
+    venue_details = Venue.query.all()
+
+    return render_template("home.html", weddings=weddings, venue_details=venue_details)
