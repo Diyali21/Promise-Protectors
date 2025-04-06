@@ -33,3 +33,16 @@ body {
   margin-top: 20px;
   color: #777;
 }
+
+.policy-value {
+  font-size: 15px;
+  font-weight: 600;
+  background-color: #ff6b98;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 19px;
+}
+.policy-label {
+  font-size: 15px;
+  color: #6e6e6e;
+}
