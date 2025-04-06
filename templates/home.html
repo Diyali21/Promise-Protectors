@@ -1,234 +1,122 @@
 {% extends "base.html" %} {% set active_page = '/home' %} {% block title
 %}Home{% endblock %} {% block head_content %}
-<style>
-
-  .user-images {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    padding-bottom: 30px;
-  }
-  .user-venue-card{
-     padding: 20px;
-        background-color:#ffcce3;
-        margin-bottom: 20px;
-        border-radius: 12px;
-  }
-  .user-card-header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
-    max-width: 100%;
-    padding-top: 30px;
-
-  }
-    .container {
-        width: 100%;
-        margin: 0 auto;
-
-        overflow: hidden;
-        padding-bottom: 20px;
-      }
-  .user-card-header h3{
-  color: #cc3377;
-  font-weight: 600;
-  }
-  .user-card-header h5{
-  color: #000000;
-  font-weight: 600;
-  }
-  .user-card-header p{
-    color: #cc3377;
-    font-weight: 600;
-  }
-  .card-header2 {
-    padding-right: 436px;
-  }
-  .user-image {
-    width: 95%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 12px;
-  }
-
-  .section-title {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    color: #cc3377;
-    text-align: center;
-  }
-  .g-4{
-    padding-top: 100px;
-    display: flex;
-    justify-content: space-between;
-    gap:10px;
-    margin-bottom: 20px;
-    border-radius: 12px;
-    padding: 20px;
-  }
-  .col{
-    max-width: 500px;
-    min-height: 500px;
-
-  }
-  .col h4{
-    color: #cc3377;
-    min-height: 45px;
-    padding-bottom: 0px;
-  }
-  .card-img-top{
-    width: 100%;
-   height: 300px;
-   object-fit: cover;
-   object-position: center;
-  }
-  .card{
-    margin-bottom: 2rem;
-    overflow: hidden;
-    height: 100%;
-    background-color:#ffcce3;
-
-  }
-  .row{
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .user-venue-container h1{
-    padding-bottom: 10px;
-    padding-top: 50px;
-    text-align: center;
-    color:  #cc3377;
-    width: 100%;
-  }
-  h2{
-    margin-bottom: 0;
-    padding-top: 30px;
-    text-align: center;
-    color: #cc3377;
-  }
-  .card-text{
-    padding-top: 0px;
-  }
-
-  .venue-price {
-        font-size: 30px;
-        font-weight: 600;
-        background-color:#ff69b4;
-        text-align: center;
-        padding-top: 10px;
-      }
-
-  .venues-section-header{
-    font-size: 28px;
-        font-weight: bold;
-        margin-bottom: 15px;
-        color: #cc3377;
-        text-align: center;
-        padding-bottom: 15px;
-  }
-  .view-all-butn{
-    color: red;
-  }
-
-
-</style>
+<link rel="stylesheet" href="/static/css/home.css" />
 {% endblock %} {% block content %}
 <body>
   <div class="container">
     <div class="user-venue-container">
       <div class="user-venue-card">
-        <div class="user_info">      <h2>Welcome, {{current_user.username}}</h2>
-         <h1>Your Upcoming Events</h1>
-         {% for wed in weddings %} {% if wed.username == current_user.username %}
-      <div class="user-card-header">
-        <div class="card-header1">
-          <h5></h5>
-          <p>Wedding Date: {{wed.wed_date}}</p>
-          <p>Guests: {{wed.no_guests}}</p>
-           <p>Total Price: R{{wed.total_price}}</p>
+        {% if current_user.username in user_wedding %}
+        <h1 class="h1-upcoming">Your Upcoming Events</h1>
+        {% for wed in weddings %} {% if wed.username == current_user.username %}
+        <div class="card-event">
+          <div class="card-info">
+            <h5>Countdown: {{(wed.wed_date - now.date())}}</h5>
+            <p>Wedding Date: {{wed.wed_date}}</p>
+            <p>Guests: {{wed.no_guests}}</p>
+            <p>Total Price: R{{wed.total_price}}</p>
+
+            {% for data in venue_details %} {% if wed.venue_id == data.venue_id
+            %}
+            <img class="user-image" src="{{data.venue_image}}" alt="" />
+          </div>
+          {% endif %} {% endfor %} {% endif %}{% endfor %}
         </div>
-
-        <div class="user-images">
-           {% for data in venue_details %} {% if wed.venue_id == data.venue_id %}
-        <img class="user-image" src="{{data.venue_image}}" alt="">
-        {% endif %} {% endfor %}
-        {% endif %}{% endfor %}
-      </div>
-      {% if not weddings %}
-        <h1>You dont have any upcoming events</h1>
+        {% else %}
+        <h1>You have no upcoming events</h1>
         {% endif %}
-    </div>
-    </div>
-    </div>
-
-    <div class="venues-section-header">
-      <h2>Popular Venues:</h2>
       </div>
+    </div>
+  </div>
 
+  <div class="venues-section-header">
+    <h2>Popular Venues:</h2>
+  </div>
 
-    <div class="all-user-venues">
-      <div class="venues-section">
+  <div class="all-user-venues">
+    <div class="venues-section">
       <div class="main-container">
-              <div class="row row-cols-1 row-cols-md-2 g-4">
-  <div class="col">
-    <div class="card">
-      <img src="https://image.wedmegood.com/resized-nw/1300X/wp-content/uploads/2018/12/Moving-Pictures.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h4 class="card-title">Eternal Waves</h4>
-        <p class="card-text">Softly glowing sand, whispering waves, and endless blue horizons converge to create an enchanting beachside haven.</p>
-         <div class="venue-price">R8,500</div>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+          <div class="col">
+            <div class="card">
+              <img
+                src="https://image.wedmegood.com/resized-nw/1300X/wp-content/uploads/2018/12/Moving-Pictures.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h4 class="card-title">Eternal Waves</h4>
+                <p class="card-text">
+                  Softly glowing sand, whispering waves, and endless blue
+                  horizons converge to create an enchanting beachside haven.
+                </p>
+                <div class="venue-price">R8,500</div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img
+                src="https://www.arabiaweddings.com/sites/default/files/styles/max750/public/listing/2019/10/30/four_season.jpeg?itok=MbAzHwFh"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h4 class="card-title">
+                  <i class="fa-solid fa-fire"></i> Savor the Moment
+                </h4>
+                <p class="card-text">
+                  Soft lighting dances across rich textures, casting a golden
+                  glow on your special day
+                </p>
+                <div class="venue-price">R9,500</div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img
+                src="https://weddedwonderland.com/wp-content/uploads/2020/01/w9MAYKnQ.jpeg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h4 class="card-title">Whispers of Love Banquet Hall</h4>
+                <p class="card-text">
+                  Envision getting married beneath soaring ceilings and
+                  sparkling chandeliers, surrounded by the opulence of a grand
+                  banquet hall
+                </p>
+                <div class="venue-price">R10,500</div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img
+                src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/62/53/c6/caption.jpg?w=1200&h=-1&s=1"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h4 class="card-title">Enchanted Garden</h4>
+                <p class="card-text">
+                  Spend your special day surrounded by the sights, sounds, and
+                  scents of nature, your love will flourish, and your hearts
+                  will forever be entwined.
+                </p>
+                <div class="venue-price">R11,500</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col">
-    <div class="card">
-      <img src="https://www.arabiaweddings.com/sites/default/files/styles/max750/public/listing/2019/10/30/four_season.jpeg?itok=MbAzHwFh" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h4 class="card-title"><i class="fa-solid fa-fire"></i> Savor the Moment</h4>
-        <p class="card-text">Soft lighting dances across rich textures, casting a golden glow on your special day</p>
-          <div class="venue-price">R9,500</div>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="https://weddedwonderland.com/wp-content/uploads/2020/01/w9MAYKnQ.jpeg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h4 class="card-title">Whispers of Love Banquet Hall</h4>
-        <p class="card-text">Envision getting married beneath soaring ceilings and sparkling chandeliers, surrounded by the opulence of a grand banquet hall</p>
-          <div class="venue-price">R10,500</div>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/62/53/c6/caption.jpg?w=1200&h=-1&s=1" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h4 class="card-title">Enchanted Garden</h4>
-        <p class="card-text"> Spend your special day surrounded by the sights, sounds, and scents of nature, your love will flourish, and your hearts will forever be entwined.</p>
-         <div class="venue-price">R11,500</div>
-      </div>
-    </div>
-  </div>
-      </div>
-
-</div>
-
-
-
-
-
-
-  </div>
-
-    </div>
-
 </body>
-{% endblock %}
 <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+  crossorigin="anonymous"
+></script>
+{% endblock %}

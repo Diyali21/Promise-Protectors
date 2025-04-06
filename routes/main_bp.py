@@ -1,11 +1,8 @@
 from datetime import datetime
-from pprint import pprint
-from webbrowser import get
 
 from flask import Blueprint, redirect, render_template, request, session, url_for
-from flask_login import login_required
+from flask_login import current_user, login_required
 
-from models import wedding
 from models.user import User
 from models.venue import Venue
 from models.wedding import Wedding
@@ -29,9 +26,21 @@ def home_page():
     if not user:
         return redirect(url_for("auth_bp.login_page"))
     now = datetime.now()
-
     weddings = Wedding.query.filter(Wedding.wed_date > now).all()
+
+    user_wedding = Wedding.query.filter_by(username=username)
+
+    user_wedding = []
+
+    for wed in weddings:
+        user_wedding.append(wed.username)
 
     venue_details = Venue.query.all()
 
-    return render_template("home.html", weddings=weddings, venue_details=venue_details)
+    return render_template(
+        "home.html",
+        weddings=weddings,
+        venue_details=venue_details,
+        user_wedding=user_wedding,
+        now=now,
+    )
