@@ -26,7 +26,11 @@ def home_page():
     if not user:
         return redirect(url_for("auth_bp.login_page"))
     now = datetime.now()
-    weddings = Wedding.query.filter(Wedding.wed_date > now).all()
+    weddings = (
+        Wedding.query.filter(Wedding.wed_date > now)
+        .order_by(Wedding.wed_date.asc())
+        .all()
+    )
 
     user_wedding = Wedding.query.filter_by(username=username)
 

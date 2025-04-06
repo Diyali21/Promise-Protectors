@@ -129,13 +129,13 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 70px;
 }
 
 .card-info {
   display: grid;
-  margin-bottom: 100px;
-  margin-left: 100px;
   color: #cc3377;
+  margin-bottom: 50px;
 }
 
 .h1-upcoming {
