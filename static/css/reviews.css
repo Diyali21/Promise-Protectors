@@ -5,9 +5,10 @@ body {
   margin: 0;
 }
 h1 {
-  margin-top: 50px;
+  margin-top: 20px;
   padding-bottom: 5px;
   font-size: 50px;
+  color: #c71585;
 }
 .card-body {
   background-color: rgb(239, 207, 212, 0.5);
@@ -22,8 +23,8 @@ h1 {
 .reviews-container {
   display: grid;
   justify-content: center;
-  padding-left: 300px;
   margin-bottom: 200px;
+  margin-left: 500px;
 }
 h5 {
   font-size: 25px;
