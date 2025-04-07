@@ -3,6 +3,9 @@ from datetime import datetime
 from flask import Blueprint, redirect, render_template, request, session, url_for
 from flask_login import current_user, login_required
 
+from models.insurance_cover import InsureCover
+from models.policy_cover import PolicyCover
+from models.policy_user import PolicyUser
 from models.user import User
 from models.venue import Venue
 from models.wedding import Wedding
@@ -47,4 +50,38 @@ def home_page():
         venue_details=venue_details,
         user_wedding=user_wedding,
         now=now,
+    )
+
+
+@main_bp.get("/<wed_id>")
+def profile_page(wed_id):
+    wedding = Wedding.query.filter_by(
+        wed_id=wed_id, username=current_user.username
+    ).first()
+
+    if not wedding:
+        return "You have no upcoming events"
+
+    policy = PolicyUser.query.filter_by(wed_id=Wedding.wed_id).first()
+
+    if not policy:
+        return "You have no upcoming events"
+    policy_covers = PolicyCover.query.filter_by(policy_id=policy.policy_id).all()
+
+    covers = []
+
+    for pc in policy_covers:
+        cover = InsureCover.query.get(pc.cover_id)
+
+        if cover:
+            covers.append(cover)
+
+        venue_details = Venue.query.all()
+
+    return render_template(
+        "profile.html",
+        wedding=wedding,
+        policy=policy,
+        covers=covers,
+        venue_details=venue_details,
     )

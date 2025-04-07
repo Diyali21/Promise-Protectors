@@ -59,9 +59,11 @@ def create_cover():
             venue_id=data["venue_id"],
         )
 
-        new_policy_user = PolicyUser(username=current_user.username)
-
         db.session.add(new_cover)
+        db.session.commit()
+
+        new_policy_user = PolicyUser(wed_id=new_cover.wed_id)
+
         db.session.add(new_policy_user)
         db.session.commit()
 
