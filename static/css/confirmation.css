@@ -71,3 +71,9 @@ h1 {
 .contain {
   display: grid;
 }
+
+@media print {
+  .no-print {
+    display: none;
+  }
+}

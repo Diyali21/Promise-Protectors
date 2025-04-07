@@ -14,11 +14,14 @@ body {
 
 .links-container {
   display: grid;
+  place-content: center;
+  justify-content: center;
 }
 .links {
   list-style: none;
   font-size: 15px;
   margin-right: 35px;
+  text-align: left;
 }
 .inner-container {
   display: grid;
@@ -31,6 +34,7 @@ body {
   height: 30px;
   gap: 20px;
   padding-top: 60px;
+  text-align: left;
 }
 .promise-protectors {
   display: grid;
@@ -39,7 +43,7 @@ body {
 .logo {
   width: 200px;
   height: 250px;
-  margin-left: 400px;
+  margin-left: 200px;
   padding-top: 50px;
 }
 .description {
@@ -51,6 +55,8 @@ body {
   margin: 0px;
   padding-top: 50px;
   font-size: 20px;
+  text-align: left;
+  padding-left: 30px;
 }
 .bottom-line {
 }
