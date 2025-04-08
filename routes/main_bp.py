@@ -6,6 +6,7 @@ from flask_login import login_required
 
 from models import wedding
 from models.user import User
+from models.venue import Venue
 from models.wedding import Wedding
 
 HTTP_NOT_FOUND = 404
@@ -41,3 +42,16 @@ def home_page():
             }
         )
     return render_template("home.html", user=user, upcoming_events=upcoming_events)
+
+
+@main_bp.get("/<venue_id>")
+@login_required
+def venue_details_page(venue_id):
+    venue = Venue.query.get(venue_id)
+
+    if not venue:
+        return render_template("home.html")
+
+    venue_data = venue.to_dict()
+
+    return render_template("venue_details.html", venue=venue_data)

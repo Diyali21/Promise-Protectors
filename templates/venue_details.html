@@ -1,0 +1,27 @@
+{% extends "base.html" %}{% block title %}Venue Details {% endblock %} {% block head_content %}
+    <link rel="stylesheet" href="/static/css/new_venue_details.css" />
+    {% endblock %} {% block content %}
+  </head>
+
+</head>
+<body>
+<div class="container">
+<h1>{{venue.name}}</h1>
+<h2>
+{{venue.description}}
+</h2>
+<h3>Kindly note that this venue caters for a max of {{venue.max_guests}} people</h3>
+<div class="d-grid">
+<img
+src="{{venue.venue_image}}"
+alt="Secret Garden Wedding Venue"
+class="card-img-top">
+</div>
+<a href="/get-covered" class="button-style">GET COVERED</a>
+</div>
+</body>
+</html>
+    {% block footer %}
+    {% include 'footer.html' %}
+    {% endblock %}
+{% endblock %}
