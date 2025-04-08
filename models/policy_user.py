@@ -11,4 +11,4 @@ class PolicyUser(db.Model):
     wed_id = db.Column(db.String(50))
 
     def to_dict(self):
-        return {"policy_id": self.policy_id, "username": self.wed_id}
+        return {"policy_id": self.policy_id, "wed_id": self.wed_id}

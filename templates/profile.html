@@ -185,15 +185,13 @@
 
 
           </div>
-          {% for cover in covers %}
-          <div class="policy-body">
+          <div class="policy-body">{% for cover in covers %}
             <div class="policy-row">
               <span class="policy-label">{{cover.cover_name}}</span>
               <span class="policy-value">{{cover.cover_price}}</span>
             </div>
-
+             {% endfor %}
           </div>
-           {% endfor %}
         </div>
       </div>
       <button class="action-button">EDIT POLICY</button>
