@@ -141,3 +141,8 @@ h2 {
 .h1-upcoming {
   margin-bottom: 50px;
 }
+
+.card-upcoming {
+  display: flex;
+  flex-wrap: wrap;
+}

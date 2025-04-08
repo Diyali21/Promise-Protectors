@@ -43,12 +43,11 @@ def home_page():
         user_wedding.append(wed.username)
 
     venue_details = Venue.query.all()
-    venue_dict = [venue.to_dict() for venue in venue_details]
 
     return render_template(
         "home.html",
         weddings=weddings,
-        venue_details=venue_dict,
+        venue_details=venue_details,
         user_wedding=user_wedding,
         now=now,
     )

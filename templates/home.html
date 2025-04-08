@@ -4,30 +4,33 @@
 {% endblock %} {% block content %}
 <body>
   <div class="container">
-    <div class="user-venue-container">
+      {% if current_user.username in user_wedding %}
       <div class="user-venue-card">
-        {% if current_user.username in user_wedding %}
         <h1 class="h1-upcoming">Your Upcoming Events</h1>
-        {% for wed in weddings %} {% if wed.username == current_user.username %}
-        <div class="card-event">
-          <div class="card-info">
-            <h5>{{(wed.wed_date - now.date()).days}} days to go</h5>
-            <p>Wedding Date: {{wed.wed_date}}</p>
-            <p>Guests: {{wed.no_guests}}</p>
-            <p>Total Price: R{{wed.total_price}}</p>
-            <a
-              href="{{url_for('main_bp.profile_page', username=username, wed_id=wed.wed_id)}}"
-              ><i class="fa-solid fa-pen-to-square"></i
-            ></a>
-            {% for data in venue_details %} {% if wed.venue_id == data.venue_id
-            %}
-            <img class="user-image" src="{{data.venue_image}}" alt="" />
+          {% for wed in weddings %} {% if wed.username == current_user.username
+          %}
+          <div class="card-event">
+            <div class="card-info">
+              <h4 class="card-title">
+                {{(wed.wed_date - now.date()).days}} days to go
+              </h4>
+              <p class="card-text">Wedding Date: {{wed.wed_date}}</p>
+              <p class="card-text">Guests: {{wed.no_guests}}</p>
+              <p class="venue-price">Total Price: R{{wed.total_price}}</p>
+              <a
+                href="{{url_for('main_bp.profile_page', username=username, wed_id=wed.wed_id)}}"
+                ><i class="fa-solid fa-pen-to-square"></i
+              ></a>
+              {% for data in venue_details %} {% if wed.venue_id ==
+              data.venue_id %}
+              <img class="card-img-top" src="{{data.venue_image}}" alt="" />
+            </div>
+            {% endif %} {% endfor %} {% endif %}{% endfor %}
           </div>
-          {% endif %} {% endfor %} {% endif %}{% endfor %}
+          {% else %}
+          <h1>You have no upcoming events</h1>
+          {% endif %}
         </div>
-        {% else %}
-        <h1>You have no upcoming events</h1>
-        {% endif %}
       </div>
     </div>
   </div>

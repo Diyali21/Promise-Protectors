@@ -14,6 +14,8 @@ venue_details_bp = Blueprint("venue_details_bp", __name__)
 def venue_details_page(venue_id):
     venue = Venue.query.get(venue_id)
 
+    if not venue:
+        return render_template("not-found.html")
     venue_data = venue.to_dict()
 
     return render_template("venue_details.html", venue=venue_data)
