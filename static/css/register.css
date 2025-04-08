@@ -53,12 +53,9 @@ main {
 .side-panel {
   display: flex;
   background-repeat: no-repeat;
-  background-size: 700px;
   overflow: hidden;
   object-fit: cover;
-  margin-top: 50px;
   padding-left: 20px;
-  width: 100%;
 }
 .h1,
 h1 {
@@ -68,9 +65,8 @@ h1 {
 img {
   width: 500px;
   overflow: hidden;
-  object-fit: contain;
-}
-.side-panel-footer {
+  height: 800px;
+  width: 750px;
 }
 
 body {

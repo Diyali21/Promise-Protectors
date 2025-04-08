@@ -71,9 +71,10 @@ h6 {
 }
 .image-section {
   flex: 1;
+  padding-left: 40px;
 }
 img {
   width: 500px;
   overflow: hidden;
-  object-fit: contain;
+  height: 450px;
 }
