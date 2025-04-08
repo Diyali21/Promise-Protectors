@@ -1,0 +1,79 @@
+body {
+  display: grid;
+  justify-content: center;
+  color: #333;
+  font-size: 22px;
+}
+.confirmation-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 800px;
+  gap: 400px;
+  margin: 0px;
+  padding-left: 10px;
+  padding-top: 50px;
+}
+.header {
+  margin-bottom: 30px;
+  border-bottom: 2px solid #e18aaa;
+  padding-bottom: 20px;
+}
+h1 {
+  color: #000;
+}
+.policy-details {
+  margin-bottom: 30px;
+}
+.premium-card {
+  background-color: rgb(245, 220, 224);
+  border-left: 5px solid #e18aaa;
+  padding: 15px;
+  margin-bottom: 25px;
+  border-radius: 5px;
+}
+.premim-amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000;
+}
+.coverage-table {
+  margin-top: 20px;
+}
+.coverage-table th {
+  background-color: #e4a0b7;
+}
+.coverage-item {
+  font-weight: 500;
+}
+.amount {
+  font-weight: 600;
+}
+.policy-number {
+  background-color: rgb(239, 207, 212, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.venue-pic {
+  width: 800px;
+  height: 800px;
+}
+
+.info-container {
+  display: grid;
+  width: 700px;
+}
+
+.contain {
+  display: grid;
+}
+
+@media print {
+  .no-print {
+    display: none;
+  }
+}

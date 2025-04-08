@@ -1,0 +1,35 @@
+.nav-link-container {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  gap: 70px;
+  padding: 0px;
+}
+
+.nav-link-container a {
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+}
+.spacing-words {
+  margin-top: 75px;
+}
+.img-logo {
+  margin-top: 20px;
+  height: 180px;
+  border-radius: 50px;
+}
+
+a:hover {
+  color: #c71585;
+}
+
+.nav-link.active {
+  color: #c71585;
+}
+
+.profile {
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+}

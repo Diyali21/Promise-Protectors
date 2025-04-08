@@ -1,0 +1,48 @@
+body {
+  background-color: #fff0f5;
+}
+.container {
+  background-color: white;
+  color: #c71585;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin-top: 30px;
+  margin-bottom: 200px;
+  max-width: 900px;
+}
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.header h1 {
+  font-weight: 700;
+}
+.header p {
+  color: #666;
+}
+.form-label {
+  font-weight: 500;
+}
+.btn-primary {
+  background-color: #ff69b4;
+  border: #ff69b4;
+}
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  color: #777;
+}
+
+.policy-value {
+  font-size: 15px;
+  font-weight: 600;
+  background-color: #ff6b98;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 19px;
+}
+.policy-label {
+  font-size: 15px;
+  color: #6e6e6e;
+}

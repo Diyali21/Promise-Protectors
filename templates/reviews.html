@@ -1,0 +1,75 @@
+{% extends "base.html" %} {% set active_page = '/reviews' %} {% block title %}Reviews {% endblock %}{% block head_content %}
+<link rel="stylesheet" href="/static/css/reviews.css" />
+    {% endblock %} {% block content %}
+  </head>
+  <body>
+    <div class="reviews-container">
+      <h1>Reviews</h1>
+      <p class="second-line">See what our clients have to say</p>
+      <div class="card-group">
+        <div class="card">
+          <img
+            src="https://whitehouseweddingphotography.com/wp-content/uploads/2021/05/miami-african-american-wedding-photographer-antonio-crutchley-05.jpg"
+            class="card-img-top"
+            alt="wedding-image"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Samantha Hugh</h5>
+            <p class="card-text">
+              I recently used this app for my big day, and I couldn't be more
+              pleased with the experience! Highly recommend it for any couple
+              planning their wedding!
+            </p>
+            <p class="card-text">
+              <small class="text-body-secondary">Posted 3 mins ago</small>
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="https://www.topweddingsites.com/wedding-blog/wp-content/uploads/2017/12/Destination-Wedding-Venue.jpg"
+            class="card-img-top-left"
+            alt="wedding-image"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Steve John</h5>
+            <p class="card-text">
+              I decided to get wedding insurance after my sister had a few
+              mishaps with her wedding, and this app seemed like a great way to
+              protect our day. The pricing was super affordable, and I love how
+              easy it was to sign up and get a quote.
+            </p>
+            <p class="card-text">
+              <small class="text-body-secondary">Posted 1 month ago</small>
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="https://images.squarespace-cdn.com/content/v1/5a58dd57268b9690fe17d744/1583259521675-GWAKCOV9HSN78PW116HP/munaluchi_wedding_Bukola-and-Howard_munaluchi-bride_modern_nigerian_inspiration_fashion_dress_gown_groom_decor_florals_cake_north-carolina_multicultural_love-24.jpg"
+            class="card-img-top"
+            alt="wedding-image"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Carrie Brad</h5>
+            <p class="card-text">
+              I can't recommend this app enough! Wedding planning is stressful,
+              and there are so many things that can go wrong. This app gave me
+              peace of mind knowing I was covered in case of any emergency. I
+              was able to easily select coverage for things like cancellation,
+              property damade, and even vendor no-shows. I
+            </p>
+
+            <p class="card-text">
+              <small class="text-body-secondary">Posted 3 months ago</small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+    {% block footer %}
+    {% include 'footer.html' %}
+    {% endblock %}
+{% endblock %}

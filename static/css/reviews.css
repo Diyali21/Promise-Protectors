@@ -1,0 +1,39 @@
+body {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+h1 {
+  margin-top: 20px;
+  padding-bottom: 5px;
+  font-size: 50px;
+  color: #c71585;
+}
+.card-body {
+  background-color: rgb(239, 207, 212, 0.5);
+  padding-top: 20px;
+}
+.card-group {
+  width: 75%;
+  justify-content: center;
+  border: #ecbfd0 solid;
+  border-radius: 5px;
+}
+.reviews-container {
+  display: grid;
+  justify-content: center;
+  margin-bottom: 200px;
+  margin-left: 500px;
+}
+h5 {
+  font-size: 25px;
+}
+.card-text {
+  font-size: 18px;
+}
+
+.second-line {
+  font-size: 25px;
+  padding-bottom: 30px;
+}

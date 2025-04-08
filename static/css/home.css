@@ -1,0 +1,143 @@
+.user-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  padding-bottom: 30px;
+}
+.user-venue-card {
+  padding: 20px;
+  background-color: #ffcce3;
+  margin-bottom: 20px;
+  border-radius: 12px;
+}
+.user-card-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 100%;
+  padding-top: 30px;
+}
+.container {
+  width: 100%;
+  margin: 0 auto;
+
+  overflow: hidden;
+  padding-bottom: 20px;
+}
+.user-card-header h3 {
+  color: #cc3377;
+  font-weight: 600;
+}
+.user-card-header h5 {
+  color: #000000;
+  font-weight: 600;
+}
+.user-card-header p {
+  color: #cc3377;
+  font-weight: 600;
+}
+.card-header2 {
+  padding-right: 436px;
+}
+.user-image {
+  width: 95%;
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #cc3377;
+  text-align: center;
+}
+.g-4 {
+  padding-top: 100px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  padding: 20px;
+}
+.col {
+  max-width: 500px;
+  min-height: 500px;
+}
+.col h4 {
+  color: #cc3377;
+  min-height: 45px;
+  padding-bottom: 0px;
+}
+.card-img-top {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+}
+.card {
+  margin-bottom: 2rem;
+  overflow: hidden;
+  height: 100%;
+  background-color: #ffcce3;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.user-venue-container h1 {
+  padding-bottom: 10px;
+  padding-top: 50px;
+  text-align: center;
+  color: #cc3377;
+  width: 100%;
+}
+h2 {
+  margin-bottom: 0;
+  padding-top: 30px;
+  text-align: center;
+  color: #cc3377;
+}
+.card-text {
+  padding-top: 0px;
+}
+
+.venue-price {
+  font-size: 30px;
+  font-weight: 600;
+  background-color: #ff69b4;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.venues-section-header {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #cc3377;
+  text-align: center;
+  padding-bottom: 15px;
+}
+.view-all-butn {
+  color: red;
+}
+.card-event {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 70px;
+}
+
+.card-info {
+  display: grid;
+  color: #cc3377;
+  margin-bottom: 50px;
+}
+
+.h1-upcoming {
+  margin-bottom: 50px;
+}

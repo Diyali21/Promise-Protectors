@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        display: grid;
+        place-content: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: rgba(204, 51, 119, 0.09);
+      }
+      .container {
+        max-width: 800px;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 8px 169px rgba(243, 233, 234, 0.5);
+        overflow: hidden;
+      }
+      .venue-image-container {
+        height: 300px;
+        overflow: hidden;
+      }
+      .venue-image {
+        width: 900px;
+        height: 100%;
+        object-fit: cover;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        border-radius: 12px;
+      }
+      .venue-overlay {
+        display: flex;
+        flex-direction: column;
+        color: #ff4f9e;
+        padding-top: 10px;
+        font-weight: 600;
+        background-color: #ffcce3;
+        color: rgb(20, 20, 20);
+        padding: 8px;
+        border-radius: 12px;
+        margin-top: 10px;
+      }
+      .venue-name {
+        font-size: 28px;
+        font-weight: 700;
+        opacity: 0.9;
+      }
+      .content {
+        padding: 5px;
+      }
+      .premium-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #ffcce3;
+        color: rgb(20, 20, 20);
+        padding: 8px;
+        border-radius: 12px;
+      }
+      .premium-title {
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .premium-amount {
+        font-size: 34px;
+        font-weight: 700;
+      }
+      .policy-section {
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(148, 85, 113, 0.09);
+        margin-bottom: 24px;
+      }
+      .premium-section p {
+        font-size: 50px;
+      }
+      .policy-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 24px;
+        border-bottom: 1px solid rgba(192, 11, 92, 0.1);
+      }
+      .policy-number {
+        font-size: 16px;
+        font-weight: 600;
+        color: #ff4f9e;
+      }
+      .policy-body {
+        padding: 8px;
+      }
+      .policy-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid rgb(239, 207, 212, 0.5);
+      }
+      .policy-label {
+        font-size: 15px;
+        color: #6e6e6e;
+      }
+      .policy-value {
+        font-size: 15px;
+        font-weight: 600;
+        background-color: #ff6b98;
+        color: white;
+        padding: 6px 14px;
+        border-radius: 19px;
+      }
+      .action-button {
+        background-color: #e18aaa;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 14px 20px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: block;
+        width: 100%;
+        letter-spacing: 0.5px;
+      }
+      h1 {
+        font-weight: 700;
+        color: #c71585;
+        text-align: center;
+        padding-top: 30px;
+      }
+      h2 {
+        color: #c71585;
+      }
+      .venue-details {
+        align-items: center;
+        font-size: 11px;
+        margin-top: 9px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container main-container">
+      <div class="container profile-container">
+        <h1 class="section-title">
+          <i class="fas fa-heart"></i> Your Selected Venue
+        </h1>
+        <div class="venue-overlay">
+          {% for data in venue_details %} {% if wedding.venue_id ==
+          data.venue_id %}
+        <h2 class="venue-name">{{data.name}}</h2>
+        <div class="venue-details">
+          <h3>R{{data.venue_price}}</h3>
+          <p>Max Capacity: {{data.max_guests}}</p>
+        </div>
+      </div>
+      <div class="venue-image container">
+        <img
+          class="venue-image"
+          src="{{data.venue_image}}"
+          alt=""
+        />
+      </div>
+      {% endif %} {% endfor %}
+      <div class="content">
+        <div class="premium-section">
+          <div class="premium-title">
+            <h5>Total Premium</h5>
+            <p>R{{wedding.total_price}}</p>
+          </div>
+        </div>
+        <div class="policy-section">
+          <div class="policy-header">
+            <div class="policy-number">Policy Number: {{policy.policy_id}}</div>
+
+
+          </div>
+          <div class="policy-body">{% for cover in covers %}
+            <div class="policy-row">
+              <span class="policy-label">{{cover.cover_name}}</span>
+              <span class="policy-value">{{cover.cover_price}}</span>
+            </div>
+             {% endfor %}
+          </div>
+        </div>
+      </div>
+      <button class="action-button">EDIT POLICY</button>
+    </div>
+  </body>
+</html>

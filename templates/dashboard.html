@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% set active_page = '/dashboard' %} {% block title %}Dashboard{% endblock %}{% block head_content %}
+ <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/static/css/dashboard.css" />
+    {% endblock %} {% block content %}
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <h3>Wedding Day Countdown: 5 days to go! 🎉</h3>
+        <div class="profile">
+        <h2>Hello, Lana 😊</h2>
+         <img
+        class="profile-pic"
+        src="https://th.bing.com/th/id/OIP.xTWS6yh3vv764AW3dsSvPwAAAA?rs=1&pid=ImgDetMain
+"
+        alt=""
+      />
+      </div>
+      <h3 class="package-cards">Current Package <i class="fa-solid fa-pen-to-square"></i><i class="fa-solid fa-trash"></i></h3>
+      </div>
+    </div>
+  </body>
+</html>
+{% endblock %}
