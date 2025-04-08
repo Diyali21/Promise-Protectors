@@ -40,84 +40,22 @@
     <div class="venues-section">
       <div class="main-container">
         <div class="row row-cols-1 row-cols-md-2 g-4">
+          {% for venue in venue_details %}
           <div class="col">
             <div class="card">
-              {% for venue in venue_details %}
-              <a
-                href="{{url_for('main_bp.venue_details_page', venue_id=venue.venue_id)}}"
-                >hi</a
-              >
-              {% endfor %}
-              <img
-                src="https://image.wedmegood.com/resized-nw/1300X/wp-content/uploads/2018/12/Moving-Pictures.jpg"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                <h4 class="card-title">Eternal Waves</h4>
-                <p class="card-text">
-                  Softly glowing sand, whispering waves, and endless blue
-                  horizons converge to create an enchanting beachside haven.
-                </p>
-                <div class="venue-price">R8,500</div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img
-                src="https://www.arabiaweddings.com/sites/default/files/styles/max750/public/listing/2019/10/30/four_season.jpeg?itok=MbAzHwFh"
-                class="card-img-top"
-                alt="..."
-              />
+              <img src="{{venue.venue_image}}" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h4 class="card-title">
-                  <i class="fa-solid fa-fire"></i> Savor the Moment
+                  <a
+                    href="{{url_for('venue_details_bp.venue_details_page', venue_id=venue.venue_id)}}"
+                    >{{venue.name}}</a
+                  >
                 </h4>
-                <p class="card-text">
-                  Soft lighting dances across rich textures, casting a golden
-                  glow on your special day
-                </p>
-                <div class="venue-price">R9,500</div>
+                <div class="venue-price">R{{venue.venue_price}}</div>
               </div>
             </div>
           </div>
-          <div class="col">
-            <div class="card">
-              <img
-                src="https://weddedwonderland.com/wp-content/uploads/2020/01/w9MAYKnQ.jpeg"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                <h4 class="card-title">Whispers of Love Banquet Hall</h4>
-                <p class="card-text">
-                  Envision getting married beneath soaring ceilings and
-                  sparkling chandeliers, surrounded by the opulence of a grand
-                  banquet hall
-                </p>
-                <div class="venue-price">R10,500</div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img
-                src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/62/53/c6/caption.jpg?w=1200&h=-1&s=1"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                <h4 class="card-title">Enchanted Garden</h4>
-                <p class="card-text">
-                  Spend your special day surrounded by the sights, sounds, and
-                  scents of nature, your love will flourish, and your hearts
-                  will forever be entwined.
-                </p>
-                <div class="venue-price">R11,500</div>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
     </div>
