@@ -9,7 +9,8 @@
       {% for venue in venues %} {% if venue.venue_id == venue.venue_id %}
       <img class="venue-pic" src="{{venue.venue_image}}" alt="">
       {% endif %} {% endfor %}
-      <div class="info-container" id="content">
+      <div class="info-container">
+        <div id="content">
       <div class="text-center header">
                 <h1>Congratulations!</h1>
                  <p class="hero">Here is a detailed breakdown of your selected insurance policy: </p>
@@ -57,12 +58,14 @@
     <div class="policy-number">
       Policy Number: {{policy_id}}
     </div>
-    </div>
-    <div class="no-print">
-      <div>
-      <p>
+    <p>
         A copy of this confirmation has been sent to your email address
       </p>
+    </div>
+    </div>
+        </div>
+    <div class="no-print">
+      <div>
       </div>
       <div>
         <a href="#" id="download">Download PDF</a>
@@ -71,7 +74,7 @@
 
     </div>
     </div>
-    </div>
+
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>

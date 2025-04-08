@@ -43,11 +43,12 @@ def home_page():
         user_wedding.append(wed.username)
 
     venue_details = Venue.query.all()
+    venue_dict = [venue.to_dict() for venue in venue_details]
 
     return render_template(
         "home.html",
         weddings=weddings,
-        venue_details=venue_details,
+        venue_details=venue_dict,
         user_wedding=user_wedding,
         now=now,
     )
@@ -85,3 +86,16 @@ def profile_page(wed_id):
         covers=covers,
         venue_details=venue_details,
     )
+
+
+@main_bp.get("/<venue_id>")
+@login_required
+def venue_details_page(venue_id):
+    venue = Venue.query.get(venue_id)
+
+    if not venue:
+        return render_template("home.html")
+
+    venue_data = venue.to_dict()
+
+    return render_template("venue_details.html", venue=venue_data)

@@ -18,7 +18,6 @@ from routes.history_bp import history_bp
 from routes.main_bp import main_bp
 from routes.partners_bp import partners_bp
 from routes.reviews_bp import reviews_bp
-from routes.venue_details_bp import venue_details_bp
 
 
 def create_app():
@@ -46,7 +45,6 @@ def create_app():
 
     # Flask - Blueprints
     app.register_blueprint(main_bp)
-    app.register_blueprint(venue_details_bp, url_prefix="/venue-details")
     app.register_blueprint(faq_bp, url_prefix="/faq")
     app.register_blueprint(partners_bp, url_prefix="/partners")
     app.register_blueprint(about_bp, url_prefix="/about")
