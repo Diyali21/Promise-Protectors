@@ -11,7 +11,7 @@
         {% for wed in weddings %} {% if wed.username == current_user.username %}
         <div class="card-event">
           <div class="card-info">
-            <h5>Countdown: {{(wed.wed_date - now.date())}}</h5>
+            <h5>{{(wed.wed_date - now.date()).days}} days to go</h5>
             <p>Wedding Date: {{wed.wed_date}}</p>
             <p>Guests: {{wed.no_guests}}</p>
             <p>Total Price: R{{wed.total_price}}</p>
