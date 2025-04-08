@@ -35,6 +35,19 @@ def home_page():
         .all()
     )
 
+
+@main_bp.get("/<venue_id>")
+@login_required
+def venue_details_page(venue_id):
+    venue = Venue.query.get(venue_id)
+
+    if not venue:
+        return render_template("home.html")
+
+    venue_data = venue.to_dict()
+
+    return render_template("venue_details.html", venue=venue_data)
+=======
     user_wedding = Wedding.query.filter_by(username=username)
 
     user_wedding = []
@@ -85,3 +98,4 @@ def profile_page(wed_id):
         covers=covers,
         venue_details=venue_details,
     )
+
