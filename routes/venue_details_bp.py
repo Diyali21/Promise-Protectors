@@ -11,6 +11,7 @@ HTTP_NOT_FOUND = 404
 venue_details_bp = Blueprint("venue_details_bp", __name__)
 
 
+
 @venue_details_bp.get("/<venue_id>")
 @login_required
 def venue_details_page(venue_id):
@@ -22,3 +23,4 @@ def venue_details_page(venue_id):
     venue_data = venue.to_dict()
 
     return render_template("venue_details.html", venue=venue_data)
+

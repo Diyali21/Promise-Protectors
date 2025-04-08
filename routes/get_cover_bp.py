@@ -35,6 +35,12 @@ def create_cover():
     coverage_name = []
     coverage_price = []
     cover_id = []
+    venue_price = 0
+
+    venue = Venue.query.get(data["venue_id"])
+    if venue:
+        venue_price = venue.venue_price
+        total_price += venue.venue_price
 
     for cover_details in data["selected_cover"]:
         cover = InsureCover.query.get(cover_details)
@@ -53,9 +59,11 @@ def create_cover():
             venue_id=data["venue_id"],
         )
 
-        new_policy_user = PolicyUser(username=current_user.username)
-
         db.session.add(new_cover)
+        db.session.commit()
+
+        new_policy_user = PolicyUser(wed_id=new_cover.wed_id)
+
         db.session.add(new_policy_user)
         db.session.commit()
 
@@ -69,6 +77,7 @@ def create_cover():
                 venue_id=data["venue_id"],
                 cover_id=cover_id,
                 policy_id=new_policy_user.policy_id,
+                venue_price=venue_price,
             ),
         )
 

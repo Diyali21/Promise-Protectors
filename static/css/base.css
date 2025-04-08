@@ -9,14 +9,14 @@
 .nav-link-container a {
   text-decoration: none;
   color: black;
-  font-size: 30px;
+  font-size: 25px;
 }
 .spacing-words {
   margin-top: 75px;
 }
 .img-logo {
   margin-top: 20px;
-  height: 200px;
+  height: 180px;
   border-radius: 50px;
 }
 

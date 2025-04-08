@@ -70,7 +70,7 @@
                 <select class="form-select" id="venue_id" name="venue_id" required>
                   {% for data in venue %}
                   <option value="{{data.venue_id}}" data-capacity="{{data.max_guests}}">
-                    {{data.name}} (Max: {{data.max_guests}} guests)
+                    {{data.name}} - R{{data.venue_price}} (Max: {{data.max_guests}} guests)
                   </option>
                   {% endfor %}
                 </select>
@@ -107,77 +107,19 @@
                 <div class="card">
                   <div class="card-body">
                     <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-check mb-2">
-                          <input
-                            class="form-check-input"
-                            type="checkbox"
-                            name="insurance[]"
-                            id="propertyDamage"
-                            value="property_damage"
-                          />
-                          <label class="form-check-label" for="propertyDamage">
-                            Property Damage
-                          </label>
-                        </div>
-                        <div class="form-check mb-2">
-                          <input
-                            class="form-check-input"
-                            type="checkbox"
-                            name="insurance[]"
-                            id="guestInjury"
-                            value="guest_injury"
-                          />
-                          <label class="form-check-label" for="guestInjury">
-                            Guest Injury or Accident
-                          </label>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-check mb-2">
-                          <input
-                            class="form-check-input"
-                            type="checkbox"
-                            name="insurance[]"
-                            id="vendorNoShow"
-                            value="vendor_no_show"
-                          />
-                          <label class="form-check-label" for="vendorNoShow">
-                            Vendor No-Show
-                          </label>
-                        </div>
-                        <div class="form-check mb-2">
-                          <input
-                            class="form-check-input"
-                            type="checkbox"
-                            name="insurance[]"
-                            id="cancellation"
-                            value="cancellation"
-                          />
-                          <label class="form-check-label" for="cancellation">
-                            Cancellation Coverage
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-check mt-2">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        name="insurance[]"
-                        id="comprehensive"
-                        value="comprehensive"
-                      />
-                      <label class="form-check-label" for="comprehensive">
-                        <strong>Comprehensive Package</strong>
-                        <small class="text-muted"
-                          >(Includes all coverages above)</small
-                        >
-                      </label>
-                    </div>
+
                     {% for cover in covers %}
-                    <input type="checkbox" name="covers" value="{{cover.cover_id}}">
-                    <label>{{cover.cover_name}} - {{cover.cover_price}}</label>
+                    <div class="form-check mb-2">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            name="covers"
+                            id="cancellation"
+                            value="{{cover.cover_id}}"
+                          />
+                          <label class="form-check-label" for="covers">
+                                     <h6>{{cover.cover_name}}</h6> <p class="policy-label">{{cover.cover_description}}</p> <small class="policy-value">R{{cover.cover_price}}</small>  </label>
+                        </div>
                     {% endfor %}
                   </div>
                 </div>

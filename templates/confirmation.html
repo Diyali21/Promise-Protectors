@@ -30,6 +30,9 @@
 
           </div>
         </div>
+
+        <h4> Venue hire price: R{{venue_price}}</h4>
+
          <h2 class="h4 mb-3">Covered Risks</h2>
           <div class="table-responsive coverage-table">
             <table class="table table-hover">
@@ -50,14 +53,17 @@
   </tbody>
 </table>
 </div>
-
+<div>
     <div class="policy-number">
       Policy Number: {{policy_id}}
     </div>
-    <div>
+    </div>
+    <div class="no-print">
+      <div>
       <p>
         A copy of this confirmation has been sent to your email address
       </p>
+      </div>
       <div>
         <a href="#" id="download">Download PDF</a>
       </div>
@@ -65,19 +71,22 @@
 
     </div>
     </div>
+    </div>
 
-</div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script>
-        document.getElementById('download').addEventListener('click', () => {
+        document.getElementById('download').addEventListener('click', function() {
             const element = document.getElementById('content');
-            html2pdf().from(element).set({
+            const options = {
               margin: 1,
               filename: 'confirmation.pdf',
               image: {type: 'jpeg'},
               html2canvas: {scale: 2},
               jsPDF: {unit: 'in', format: 'letter', orientation: 'landscape'}
-            }).save();
+            };
+
+            html2pdf().set(options).from(element).save();
         });
     </script>
 </body>

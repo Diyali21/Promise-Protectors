@@ -23,6 +23,7 @@ def confirmation_page():
     venues = Venue.query.filter_by(venue_id=venue_id)
     cover_id = request.args.getlist("cover_id")
     policy_id = request.args.get("policy_id")
+    venue_price = request.args.get("venue_price")
 
     try:
         for cover_data in cover_id:
@@ -41,6 +42,7 @@ def confirmation_page():
             venues=venues,
             cover_id=cover_id,
             policy_id=policy_id,
+            venue_price=venue_price,
         )
     except Exception as e:
         db.session.rollback()  # Undo: Restore the data | After commit cannot undo
