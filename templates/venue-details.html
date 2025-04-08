@@ -1,31 +1,25 @@
 {% extends "base.html" %}{% block title %}Venue Details {% endblock %} {% block head_content %}
-    <link rel="stylesheet" href="/static/css/venuedetails.css" />
+    <link rel="stylesheet" href="/static/css/venue_details.css" />
     {% endblock %} {% block content %}
   </head>
-  <body>
-    <div class="background">
-      <h1>A secret garden, hidden just for you</h1>
-      <h2>
-        Imagine a place, where time stands still, and all that exists is the
-        beauty of nature and the love you share. In this picturesque garden
-        venue, the beauty of nature sets the stage for a romantic and
-        unforgettable wedding celebration. Spend your special day surrounded by
-        the sights, sounds, and scents of nature, your love will flourish, and
-        your hearts will forever be entwined.
-      </h2>
-      <h3>Kindly note that this venue caters for a max of 100 people</h3>
-      <img
-        style="width: 75rem"
-        src="https://forbetterforworse.co.uk/wp-content/uploads/2013/07/Manor-by-the-lake-italian-pavilion-ceremony-.jpg"
-        class="card-img-top"
-        alt="..."
-      />
-      <div class="d-grid gap-2 col-6 mx-auto" style="padding-top: 50px">
-  <a href="/get-cover" class="btn button-style" >GET COVERED</a>
+
+</head>
+<body>
+<div class="container">
+<h1>{{venue.name}}</h1>
+<h2>
+{{venue.venue_description}}
+</h2>
+<h3>Kindly note that this venue caters for a max of {{venue.max_guests}} people</h3>
+<div class="d-grid">
+<img
+src="{{venue.venue_image}}"
+alt="Secret Garden Wedding Venue"
+class="card-img-top">
 </div>
-      </div>
-    </div>
-  </body>
+<a href="/get-covered" class="button-style">GET COVERED</a>
+</div>
+</body>
 </html>
     {% block footer %}
     {% include 'footer.html' %}

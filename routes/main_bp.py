@@ -85,3 +85,16 @@ def profile_page(wed_id):
         covers=covers,
         venue_details=venue_details,
     )
+
+
+@main_bp.get("/<venue_id>")
+@login_required
+def venue_details_page(venue_id):
+    venue = Venue.query.get(venue_id)
+
+    if not venue:
+        return render_template("home.html")
+
+    data = venue.to_dict()
+
+    return render_template("venue_details.html", venue=data)
