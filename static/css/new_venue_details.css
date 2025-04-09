@@ -57,13 +57,16 @@ h3 {
   margin-top: 30px;
   margin-bottom: 50px;
 }
-img {
+.card-img-top {
   width: 100%;
   max-width: 800px;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 img:hover {
   transform: scale(1.02);
