@@ -61,12 +61,12 @@ def profile_page(wed_id):
     ).first()
 
     if not wedding:
-        return "You have no upcoming events"
+        return render_template("not-found.html")
 
     policy = PolicyUser.query.filter_by(wed_id=wedding.wed_id).first()
 
     if not policy:
-        return "You have no upcoming events"
+        return render_template("not-found.html")
     policy_covers = PolicyCover.query.filter_by(policy_id=policy.policy_id).all()
 
     covers = []
@@ -127,12 +127,12 @@ def update_page():
     policy_cover = PolicyCover.query.filter_by(policy_id=policy_user.policy_id).all()
 
     if not policy_user:
-        return "error user"
+        return render_template("not-found.html")
 
     pu = policy_user.to_dict()
 
     if not policy_cover:
-        return "error"
+        return render_template("not-found.html")
 
     for pc in policy_cover:
         db.session.delete(pc)

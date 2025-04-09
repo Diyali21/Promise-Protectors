@@ -77,9 +77,6 @@ def submit_login_page():
         if not password:
             raise ValueError("Password must be filled")
 
-        # Select * from users
-        #   where username = 'Ethan'
-        #   Limit 1;
         user_from_db = User.query.filter_by(username=username).first()
 
         if not user_from_db:
