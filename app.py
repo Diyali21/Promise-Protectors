@@ -6,7 +6,6 @@ from config import Config
 from extensions import db
 from models.user import User
 from models.venue import Venue
-from routes import partners_bp
 from routes.about_bp import about_bp
 from routes.auth_bp import auth_bp
 from routes.confirmation_bp import confirmation_bp
@@ -14,6 +13,7 @@ from routes.contact_us_bp import contact_us_bp
 from routes.dashboard_bp import dashboard_bp
 from routes.faq_bp import faq_bp
 from routes.get_cover_bp import get_cover_bp
+from routes.get_cover_edit_bp import get_cover_edit_bp
 from routes.history_bp import history_bp
 from routes.main_bp import main_bp
 from routes.partners_bp import partners_bp
@@ -57,6 +57,7 @@ def create_app():
     app.register_blueprint(history_bp, url_prefix="/history")
     app.register_blueprint(confirmation_bp, url_prefix="/confirmation")
     app.register_blueprint(auth_bp)
+    app.register_blueprint(get_cover_edit_bp)
     return app
 
 

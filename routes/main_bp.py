@@ -1,8 +1,9 @@
 from datetime import datetime
 
-from flask import Blueprint, redirect, render_template, request, session, url_for
+from flask import Blueprint, flash, redirect, render_template, request, session, url_for
 from flask_login import current_user, login_required
 
+from extensions import db
 from models.insurance_cover import InsureCover
 from models.policy_cover import PolicyCover
 from models.policy_user import PolicyUser
@@ -84,4 +85,66 @@ def profile_page(wed_id):
         policy=policy,
         covers=covers,
         venue_details=venue_details,
+        wed_id=wed_id,
     )
+
+
+@main_bp.get("/get-cover-edit")
+def get_cover_edit_page():
+    wed_id = request.args.get("wed_id")
+    wedding = Wedding.query.get(wed_id)
+    venue = Venue.query.all()
+    covers = InsureCover.query.all()
+
+    policy = PolicyUser.query.filter_by(wed_id=wed_id).first()
+
+    policy_covers = PolicyCover.query.filter_by(policy_id=policy.policy_id).all()
+
+    covers_policy = []
+
+    for pc in policy_covers:
+        cover = InsureCover.query.get(pc.cover_id)
+
+        if cover:
+            covers_policy.append(pc.cover_id)
+
+    return render_template(
+        "get-cover-edit.html",
+        venue=venue,
+        covers=covers,
+        wedding=wedding,
+        policy=policy,
+        covers_policy=covers_policy,
+    )
+
+
+@main_bp.post("/get-cover-edit")
+def update_page():
+    wedd_id = request.form.get("wed_id")
+
+    policy_user = PolicyUser.query.filter_by(wed_id=wedd_id).first()
+
+    policy_cover = PolicyCover.query.filter_by(policy_id=policy_user.policy_id).all()
+
+    if not policy_user:
+        return "error user"
+
+    pu = policy_user.to_dict()
+
+    if not policy_cover:
+        return "error"
+
+    for pc in policy_cover:
+        db.session.delete(pc)
+    db.session.commit()
+
+    selected_cover = request.form.getlist("covers")
+
+    for sc in selected_cover:
+        new_policy_cover = PolicyCover(policy_id=policy_user.policy_id, cover_id=sc)
+        db.session.add(new_policy_cover)
+    db.session.commit()
+
+    flash("Details updated successfully", "success")
+
+    return render_template("about.html")
