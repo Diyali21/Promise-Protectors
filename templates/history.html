@@ -1,6 +1,5 @@
 {% extends "base.html" %} {% set active_page = '/history' %} {% block title %}History {% endblock %}{% block head_content %}
 <link rel="stylesheet" href="/static/css/new_history.css" />
-<link rel="stylesheet" href="/static/css/new_history.css" />
     {% endblock %} {% block content %}
 
 </head>
@@ -13,18 +12,20 @@
 <div class="card mb-4">
 <div class="row g-0">
 <div class="col-md-4">
-{% for data in venue_details %} {% if wed.venue_id == data.venue_id %}
+{% for data in venue_details %} {% if wed.venue_id == data.venue_id or if %}
+<div class="header1">
+    <h4 class="venue-name"><i class="fa-solid fa-location-dot icon"></i> {{data.name}}</h4>
+
+</div>
 <img src="{{data.venue_image}}" class="img-fluid rounded" alt="Wedding Image">
 </div>
 <div class="col-md-8">
 <div class="card-body">
-<h5 class="card-title">Wedding Details</h5>
 {% endif %} {% endfor %}
-<h2>Wedding Event No: <span class="fw-normal">{{wed.wed_id}}</span></h2>
-<h4>No. of guests: <span class="fw-normal">{{wed.no_guests}}</span></h4>
-<h4>Wedding Date: <span class="fw-normal">{{wed.wed_date}}</span></h4>
-<h4>Venue Name: <span class="fw-normal">{{wed.venue_name}}</span></h4>
-<h4>Total Price: <span class="fw-normal">{{wed.total_price}}</span></h4>
+<time class="card-sec-text" datetime="{{wed.wed_date}}"> <i class="fa-regular fa-calendar icon"></i> {{wed.wed_date.strftime('%d %B %Y')}}</time>
+<h6 class="card-sec-text"><i class="fa-solid fa-users icon"></i><span class="fw-normal">{{wed.no_guests}}</span> Guests</h6>
+<h6 class="card-sec-text"><i class="fa-solid fa-tag icon"></i><span class="price-tag">R{{wed.total_price}}</span></h6>
+<small class="reference">Reference: #<span class="fw-normal">{{wed.wed_id}}</span></small>
 <p class="text-body-secondary">Last updated 3 months ago</p>
 </div>
 </div>

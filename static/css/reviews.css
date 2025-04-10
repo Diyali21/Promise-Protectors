@@ -15,16 +15,19 @@ h1 {
   padding-top: 20px;
 }
 .card-group {
-  width: 75%;
+  width: 100%;
   justify-content: center;
   border: #ecbfd0 solid;
   border-radius: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 .reviews-container {
   display: grid;
   justify-content: center;
   margin-bottom: 200px;
   margin-left: 500px;
+  max-width: 1200px;
 }
 h5 {
   font-size: 25px;
@@ -36,4 +39,15 @@ h5 {
 .second-line {
   font-size: 25px;
   padding-bottom: 30px;
+}
+.container-title {
+  background-color: #ff80ab;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 0;
+  text-align: center;
+  font-weight: 600;
+  font-size: 28px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
