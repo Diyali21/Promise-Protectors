@@ -2,38 +2,46 @@
 %}Home{% endblock %} {% block head_content %}
 <link rel="stylesheet" href="/static/css/home.css" />
 {% endblock %} {% block content %}
-<body>
-  <div class="container">
-      {% if current_user.username in user_wedding %}
-      <div class="user-venue-card">
-        <h1 class="h1-upcoming">Your Upcoming Events</h1>
-          {% for wed in weddings %} {% if wed.username == current_user.username
-          %}
-          <div class="card-event">
-            <div class="card-info">
-              <h4 class="card-title">
-                {{(wed.wed_date - now.date()).days}} days to go
-              </h4>
-              <p class="card-text">Wedding Date: {{wed.wed_date}}</p>
-              <p class="card-text">Guests: {{wed.no_guests}}</p>
-              <p class="venue-price">Total Price: R{{wed.total_price}}</p>
-              <a
-                href="{{url_for('main_bp.profile_page', username=username, wed_id=wed.wed_id)}}"
-                ><i class="fa-solid fa-pen-to-square"></i
-              ></a>
-              {% for data in venue_details %} {% if wed.venue_id ==
-              data.venue_id %}
-              <img class="card-img-top" src="{{data.venue_image}}" alt="" />
-            </div>
-            {% endif %} {% endfor %} {% endif %}{% endfor %}
-          </div>
-          {% else %}
-          <h1>You have no upcoming events</h1>
-          {% endif %}
+<div class="container">
+  <h1 class="section-title">Your Upcoming Events</h1>
+  {% if current_user.username in user_wedding %}
+  <div class="events-grid">
+    {% for wed in weddings %} {% if wed.username == current_user.username %}
+    <div class="event-card">
+      <div class="event-image">
+        {% for data in venue_details %} {% if wed.venue_id == data.venue_id %}
+        <img src="{{ data.venue_image }}" alt="Wedding Venue" />
+        {% endif %} {% endfor %}
+      </div>
+      <div class="event-details">
+        <div class="days-to-go">
+          {{ (wed.wed_date - now.date()).days }} days to go
+        </div>
+        {% for data in venue_details %} {% if wed.venue_id == data.venue_id %}
+        <h3 class="user-venues">{{data.name}}</h3>
+        {% endif %} {% endfor %}
+        <time class="card-sec-text" datetime="{{wed.wed_date}}"> <i class="fa-regular fa-calendar icon"></i> {{wed.wed_date.strftime('%d %B %Y')}}</time>
+        <p class="guests-count"><i class="fa-solid fa-users icon"></i> Guests: {{ wed.no_guests }}</p>
+        <div class="price-tag">Total Price: R{{ wed.total_price }}</div>
+        <div class="view-details">
+          <a
+            href="{{ url_for('main_bp.profile_page', username=username, wed_id=wed.wed_id)
+}}"
+          >
+            View Details <i class="fa-solid fa-arrow-right"></i>
+          </a>
         </div>
       </div>
     </div>
+    {% endif %} {% endfor %}
   </div>
+  {% else %}
+  <div class="no-events">
+    <h2>You have no upcoming events</h2>
+    <p>Start planning your perfect wedding by exploring our venues.</p>
+  </div>
+  {% endif %}
+</div>
 
   <div class="venues-section-header">
     <h2>Popular Venues:</h2>
@@ -69,5 +77,4 @@
   integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
   crossorigin="anonymous"
 ></script>
-
 {% endblock %}

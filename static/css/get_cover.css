@@ -27,6 +27,7 @@ body {
 .btn-primary {
   background-color: #ff69b4;
   border: #ff69b4;
+  padding-top: 10px;
 }
 .footer {
   text-align: center;
@@ -45,4 +46,7 @@ body {
 .policy-label {
   font-size: 15px;
   color: #6e6e6e;
+}
+.d-grid {
+  padding-top: 20px;
 }

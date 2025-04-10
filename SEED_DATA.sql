@@ -1,3 +1,4 @@
+
 CREATE TABLE venue(
 venue_id INTEGER PRIMARY KEY,
 name NVARCHAR(50) NOT NULL,
