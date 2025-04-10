@@ -23,6 +23,7 @@ def get_user_details(username):
 
 #  API / Endpoint
 @main_bp.get("/")
+@login_required
 def home_page():
     username = session.get("username")
     user = get_user_details(username)
@@ -55,6 +56,7 @@ def home_page():
 
 
 @main_bp.get("/<wed_id>")
+@login_required
 def profile_page(wed_id):
     wedding = Wedding.query.filter_by(
         wed_id=wed_id, username=current_user.username
@@ -90,6 +92,7 @@ def profile_page(wed_id):
 
 
 @main_bp.get("/get-cover-edit")
+@login_required
 def get_cover_edit_page():
     wed_id = request.args.get("wed_id")
     wedding = Wedding.query.get(wed_id)

@@ -1,72 +1,6 @@
 {% extends "base.html" %} {% set active_page = '/partners' %} {% block title %}Partners{% endblock %} {% block head_content %}
-   <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <style>
-      body {
-  margin: 0;
-  padding-top: 10px;
-    display: grid;
-  place-content: center;
-  min-height: 100vh;
-  margin: 0px;
 
-
-      }
-.partners-section {
-  padding: 20px;
-}
-.card{
-  border: none;
-  max-width: 500px;
-}
-
-.partners-headers h1 {
-        font-size: 2.5rem;
-        text-align: center;
-        color: #c71585;
-      }
-      .header-text {
-        font-size: 1.5rem;
-        text-align: center;
-        color:  #333333;
-      }
-      .col{
-    max-width: 500px;
-    min-height: 500px;
-
-  }
-  .col h4{
-   color:  #333333;
-    min-height: 45px;
-    padding-bottom: 0px;
-  }
-  .card-img-top{
-    width: 100%;
-   height: 300px;
-   object-fit: cover;
-   object-position: center;
-
-  }
-  .card{
-    margin-bottom: 2rem;
-    overflow: hidden;
-    height: 100%;
-    color:  #333333;
-
-  }
-  .card-group{
-    gap: 20px;
-    padding-top: 20px;
-    display: flex;
-    justify-content: center;
-
-  }
-
-    </style>
+    <link rel="stylesheet" href="/static/css/partners.css" />
 {% endblock %} {% block content %}
 <body>
 
@@ -100,4 +34,7 @@
 
 </body>
 </html>
+{% block footer %}
+    {% include 'footer.html' %}
+    {% endblock %}
 {% endblock %}

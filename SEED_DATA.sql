@@ -1,4 +1,3 @@
-
 CREATE TABLE venue(
 venue_id INTEGER PRIMARY KEY,
 name NVARCHAR(50) NOT NULL,
@@ -40,6 +39,7 @@ policy_cover_id NVARCHAR(50) PRIMARY KEY,
 policy_id NVARCHAR(50) FOREIGN KEY REFERENCES policy_user(policy_id),
 cover_id INTEGER FOREIGN KEY REFERENCES insurance_cover(cover_id));
 
+
 INSERT INTO insurance_cover VALUES
 (1, 'Property Damage', 3000, 'Refers to accidental harm or destruction to property such as venues, decorations, or equipment that occurs during a wedding'),
 (2, 'Guest Injury or Accident', 1500, 'Refers to unexpected harm or bodily injury to guests during the wedding'),
@@ -55,3 +55,20 @@ INSERT INTO venue VALUES
 100, 'https://image.wedmegood.com/resized-nw/1300X/wp-content/uploads/2018/12/Moving-Pictures.jpg', 8500),
 (4, 'Savor the Moment', 'Within the warm, inviting ambiance of this restaurant venue, the savoury scents of exquisite cuisine, mingle with the sweetness of celebration. Soft lighting dances across rich textures, casting a golden glow on your special day, as the gentle hum of conversation and clinking glasses creates a joyful symphony. As you savor each moment, our restaurant venue transforms into an intimate haven, where love, laughter and delectable delights blend into an unforgettable feast for the senses',
 300, 'https://www.arabiaweddings.com/sites/default/files/styles/max750/public/listing/2019/10/30/four_season.jpeg?itok=MbAzHwFh', 9500);
+
+
+INSERT INTO users VALUES(
+'Apollo3', 'Apollo Cronus', 'apolloc@gmail.com', '0741234567', 'scrypt:32768:8:1$VXCWayOiSLsTvLp4$ec62058ae851987601483b2012191d26d1fecea55d9d536d89477dabdcf76c19f13d67d2e62e7fd673b165384fb54b7dff1eb80e164dce5bbbc0e91c219f2f7a');
+
+INSERT INTO wedding VALUES (
+'ea6cf510-97a5-4a57-bf59-730eed0f2f0e',100, '2026-02-21', 16000, 'Apollo3', 3);
+
+
+INSERT INTO policy_user VALUES('e3818b07-db80-4aa7-b910-2ee1e43d2eb7', 'ea6cf510-97a5-4a57-bf59-730eed0f2f0e');
+
+
+INSERT INTO policy_cover VALUES
+('8829395d-c726-43ab-a352-6163e1bb74fe', 'e3818b07-db80-4aa7-b910-2ee1e43d2eb7', 2),
+('d748e7c6-9eef-40c8-817b-acb151368e80', 'e3818b07-db80-4aa7-b910-2ee1e43d2eb7', 4),
+('dc8f264c-f062-4098-a665-4694fb64570e', 'e3818b07-db80-4aa7-b910-2ee1e43d2eb7', 1),
+('e8cbb842-ff11-4d41-9a73-eac66d142029', 'e3818b07-db80-4aa7-b910-2ee1e43d2eb7', 3);
